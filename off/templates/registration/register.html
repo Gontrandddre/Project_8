@@ -1,0 +1,61 @@
+{% extends 'off/layouts/base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<header id="header-saved">
+    <div class="container">
+        <h1 class="text-uppercase text-white text-center font-weight-bold" >Inscription</h1>
+    </div>
+</header> 
+
+<section class="row d-flex flex-column justify-content-center align-items-center m-5">
+	
+
+	<form method="post" action="{% url 'off:register' %}">
+	{% csrf_token %}
+		
+		{% if form.errors %}
+		<div class="alert alert-danger">Votre adresse mail ou votre mot de passe est incorrect.</div>
+		{% endif %}
+		<div class="row d-flex flex-row justify-content-center align-items-center mt-2">
+		  	<div class="col-5 mt-2">
+	    	    <label for="id_email" class="label">
+	    		    <strong>Adresse électronique</strong>
+	    	    </label>
+		  	</div>
+		    <div class="col-7" style="width: 500px">
+		  		  <input type="text" class="form-control" name="email" id="id_email">
+		  	</div>	
+		</div>
+
+		<div class="row d-flex flex-row justify-content-center align-items-center  mt-2">
+		  	<div class="col-5 mt-2">
+	    	    <label for="id_password1" class="label">
+	    		    <strong>Mot de passe</strong>
+	    	    </label>
+		  	</div>
+		    <div class="col-7" style="width: 500px">
+		  		  <input type="password" class="form-control" name="password1" autocomplete="new-password" id="id_password1">
+		  	</div>
+		</div>
+
+		<div class="row d-flex flex-row justify-content-center align-items-center mt-2">
+		  	<div class="col-5 mt-2">
+	    	    <label for="id_password2" class="label">
+	    		    <strong>Confirmation du mot de passe</strong>
+	    	    </label>
+		  	</div>
+		    <div class="col-7" style="width: 500px">
+		  		  <input type="password" class="form-control" name="password2" autocomplete="new-password" id="id_password2">
+		  	</div>
+		</div>
+
+		<div class="row d-flex flex-row justify-content-end align-items-center mt-2">
+	 		<input class="btn btn-primary align-self-center m-5" type="submit" value="Sauvegarder"/>
+	 	</div>
+	 </form>
+</section>
+
+{% endblock %}

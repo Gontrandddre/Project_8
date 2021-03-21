@@ -1,0 +1,35 @@
+{% extends 'off/layouts/base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<header id="header-saved">
+    <div class="container">
+        <h1 class="text-uppercase text-white text-center font-weight-bold" >Contactez-nous !</h1>
+    </div>
+</header> 
+
+<section class="page-section" id="contact">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <p class="text-muted mb-5">Vous avez une remarque à nous faire ? <br>Contactez-nous dès maintenant par mail ou téléphone !</p>
+            </div>
+        </div>
+        <hr class="divider my-5" />
+        <div class="row">
+            <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
+                <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
+                <div>+33 7 00 00 00 00</div>
+            </div>
+            <div class="col-lg-4 mr-auto text-center">
+                <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
+                <!-- Make sure to change the email address in BOTH the anchor text and the link target below!-->
+                <a class="d-block" href="mailto:contact@yourwebsite.com">mailt@mail.com</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

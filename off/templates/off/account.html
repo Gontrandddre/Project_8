@@ -1,0 +1,30 @@
+{% extends 'off/layouts/base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<header id="header-user" class="masthead" style="height:300px">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h1 class="text-uppercase text-white font-weight-bold">Compte</h1>
+            </div>
+            
+        </div>
+    </div>
+</header> 
+
+<section class="page-section bg-primary bg-white" id="about" style="height:50%">
+    <div class="container h-100">
+        <div class="row d-flex flex-row justify-content-around align-items-center text-center">
+        	<h2>
+        		<span class="badge badge-info">E-mail</span>
+        		{{user.email}}
+        	</h2>
+       	</div>
+            
+    </div>
+</section>
+
+{% endblock %}

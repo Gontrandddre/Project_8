@@ -1,0 +1,82 @@
+{% extends 'off/layouts/base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<header id="header-saved">
+    <div class="container">
+        <h1 class="text-uppercase text-white text-center font-weight-bold" >Mes aliments sauvegardés</h1>
+    </div>
+</header> 
+
+<section class="container mt-5">
+  <div class="row d-flex flex-row justify-content-around align-items-center mb-5">
+
+    {% if not saved_products %}
+      <div class="alert alert-warning alert-dismissible fade show mt-5" role="alert">
+              Vous n'avez aucun produit sauvegardé...
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+    
+    {% else %}
+        {% for product in saved_products %}
+          <div class="col-sm-6 col-md-4 ">
+            <div class="card m-5">
+              <img src="{{product.picture}}" class="card-img-top" alt="product">
+
+              <span class="badge" 
+                    style="position: absolute;
+                           top: -10px;
+                           right: -10px;
+                           padding: 5px 10px;
+                           border-radius: 50%;
+                           {% if product.nutriscore_grade == 'a' %}
+                           background: #148248;
+                           {% elif product.nutriscore_grade == 'b' %}
+                           background: #8BBA45;
+                           {% elif product.nutriscore_grade == 'c' %}
+                           background: #F5CB3D;
+                           {% elif product.nutriscore_grade == 'd' %}
+                           background: #E58635;
+                           {% elif product.nutriscore_grade == 'e' %}
+                           background: #D8512E;
+                           {% elif product.nutriscore_grade == '?' %}
+                           background: #D8512E;
+                           {% endif %}
+                           color: white;">{{product.nutriscore_grade|upper}}</span>
+                
+              <div class="card-body">
+                <h5 class="card-title text-center">{{product.name}}</h5>
+                <div class="row d-flex flex-row justify-content-around align-items-center">
+
+                  {% if product.user_id == request.user.id %}
+                    <i class="fas fa-carrot fa-lg"></i>
+                  {% else %}
+                  <form action="{% url 'off:results' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="save" value="{{product.id}}">
+                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i></a>
+                  </form>
+                  {% endif %}
+
+                  <form action="{% url 'off:product' product.id %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="product" value="{{product.id}}">
+                    <button type="submit" class="btn btn-warning"><i class="fas fa-eye"></i></button> 
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+            {% if forloop.counter|divisibleby:3 %}
+              <div class="clearfix"></div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    </div>
+</section>
+
+{% endblock %}

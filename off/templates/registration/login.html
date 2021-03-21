@@ -1,0 +1,45 @@
+{% extends "off/layouts/base.html" %}
+
+{% block content %}
+
+<header id="header-product">
+  <div class="container">
+      <div class="row d-flex justify-content-center align-items-center pt-5">
+          <div class="col-md-6 text-center">
+              <h1 class="text-uppercase text-white font-weight-bold">Connexion</h1>
+          </div>
+      </div>
+  </div>
+</header>
+
+<section>
+  <div class="d-flex flex-row justify-content-center align-items-center mt-5">
+  {% if form.errors %}
+  <div class="alert alert-warning">Votre email ou votre mot de passe est incorrect. Veuillez réessayer.</div>
+  {% endif %}
+
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>Your account doesn't have access to this page. To proceed,
+      please login with an account that has access.</p>
+    {% else %}
+      <div class="alert alert-warning">Veuillez vous connecter pour visualiser cette page.</div>
+    {% endif %}
+  {% endif %}
+  </div>
+
+  <form class="mt-5" method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+    <div class="d-flex flex-column justify-content-center align-items-center">
+      <input class="form-control" type="text" name="username" autofocus maxlength="254" required placeholder="identifiant" style="width:250px">
+      <input class="mt-2 form-control" type="password" name="password" autocomplete="current-password" required placeholder="mot de passe" style="width:250px">
+      <input class="mt-4 btn btn-primary" type="submit" value="Se connecter"/>
+      <input type="hidden" name="next" value="{{ next }}" />
+      <a class="m-5" href="{% url 'password_reset' %}">Mot de passe oublié ?</a>
+      <hr class="divider my-4" />
+      <a class="btn btn-success mb-5" href="{% url 'off:register' %}"><i class="fas fa-angle-right"></i> Créer un compte </a>
+    </div>
+  </form>
+</section>
+
+{% endblock %}

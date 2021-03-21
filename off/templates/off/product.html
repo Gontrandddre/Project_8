@@ -1,0 +1,73 @@
+{% extends 'off/layouts/base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<header id="header-product">
+    <div class="container">
+        <div class="row d-flex justify-content-center align-items-center pt-5">
+            <div class="col-md-6 text-center mb-4">
+                <img src="{{product.picture}}" alt="" style="width: 300px" class="img-thumbnail">
+            </div>
+            <div class="col-md-6 text-center">
+                <h1 class="text-uppercase text-white font-weight-bold">{{product.name}}</h1>
+
+                {% if product.id in list_saved_id_products %}
+                    <i class="fas fa-carrot fa-lg" style="color: white"></i>
+                {% else %}
+                <form action="{% url 'off:product' product.id %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="save" value="{{product.id}}">
+                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i></a>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</header> 
+
+<section class="container mt-5">
+    <div class="row d-flex flex-row justify-content-around align-items-center text-center">
+        
+        <!-- nutriscore -->
+        <div class="col-md-6 mb-5">
+            {% if product.nutriscore_grade == 'a' %}
+            <img src="{% static 'img/nutriscore/Nutri-score-A.svg' %}">          
+            {% elif product.nutriscore_grade == 'b'%}
+            <img src="{% static 'img/nutriscore/Nutri-score-B.svg' %}">          
+            {% elif product.nutriscore_grade == 'c'%}
+            <img src="{% static 'img/nutriscore/Nutri-score-C.svg' %}">          
+            {% elif product.nutriscore_grade == 'd'%}
+            <img src="{% static 'img/nutriscore/Nutri-score-D.svg' %}">          
+            {% elif product.nutriscore_grade == 'e'%}
+            <img src="{% static 'img/nutriscore/Nutri-score-E.svg' %}">          
+            {% endif %}
+            
+        </div>
+        
+        <!-- repères nutritionels -->
+        <div class="col-md-6  mb-5">
+            <div class="card">
+                <div class="card-header text-left">
+                    <h3>Repères nutritionnels pour 100g</h3>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex flex-column justify-content-around align-items-start text-left">
+                        <div class="mb-2">{{product.fat}} g Matières grasses</div>
+                        <div class="mb-2">{{product.carbohydrates}} g Glucides</div>
+                        <div class="mb-2">{{product.proteins}} g Protéines</div>
+                        <div class="mb-2">{{product.sugars}} g Sucres</div>
+                        <div class="mb-2">{{product.salt}} g Sel</div>
+                    </div>
+                </div> 
+            </div>                        
+        </div>
+        <div class="w-100 mb-5"></div>
+        <div class="col-12 text-center mb-5">
+            <a class="btn btn-primary" href="{{product.url}}">Voir la fiche d'OpenFoodFacts</a>
+        </div>
+   	</div>  
+</section>
+
+{% endblock %}

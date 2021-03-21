@@ -1,0 +1,22 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+django = "*"
+psycopg2 = "*"
+django-debug-toolbar = "*"
+whitenoise = "*"
+requests = "*"
+pillow = "*"
+stop-words = "*"
+unicode = "*"
+unidecode = "*"
+flake8 = "*"
+selenium = "*"
+
+[requires]
+python_version = "3.8"

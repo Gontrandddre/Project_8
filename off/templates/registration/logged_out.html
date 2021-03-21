@@ -1,0 +1,24 @@
+{% extends "off/layouts/base.html" %}
+
+{% block content %}
+
+<header id="header-product">
+  <div class="container">
+      <div class="row d-flex justify-content-center align-items-center pt-5">
+          <div class="col-md-6 text-center">
+              <h1 class="text-uppercase text-white font-weight-bold">Déconnexion</h1>
+          </div>
+      </div>
+  </div>
+</header>
+
+<section style="height: 60%">
+  <div class="d-flex flex-column justify-content-around align-items-center">
+    <div class="alert alert-success" style="text-align:center;width: 400px; margin-top:100px">
+      Vous avez été déconnecté.
+    </div>
+    <a class="btn btn-warning mb-5" href="{% url 'login' %}" style="width:250px"><strong>Se connecter</strong></a>
+  </div>
+</section>
+
+{% endblock %}
