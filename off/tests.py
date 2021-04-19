@@ -9,6 +9,8 @@ import time
 from .models import Product, CustomUser
 
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 
 # Create your tests here.
@@ -294,7 +296,7 @@ class UsersManagersTests(TestCase):
 class testSelenium(StaticLiveServerTestCase):
 
     def setUp(self):
-        self.browser = webdriver.Chrome('./off/chromedriver')
+        self.browser = webdriver.Chrome(ChromeDriverManager().install())
     
     def tearDown(self):
         self.browser.close()
