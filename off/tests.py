@@ -291,48 +291,48 @@ class UsersManagersTests(TestCase):
 #         self.assertEqual(session["search"], "test")
 
 
-class testSelenium(StaticLiveServerTestCase):
+# class testSelenium(StaticLiveServerTestCase):
 
-    def setUp(self):
-        self.browser = webdriver.Chrome('chromedriver')
+#     def setUp(self):
+#         self.browser = webdriver.Chrome('chromedriver')
     
-    def tearDown(self):
-        self.browser.close()
+#     def tearDown(self):
+#         self.browser.close()
 
-    def test_wrong_login_selenium(self):
-        self.browser.get(self.live_server_url)
+#     def test_wrong_login_selenium(self):
+#         self.browser.get(self.live_server_url)
         
-        email = self.browser.find_element_by_id("email_login")
-        submit = self.browser.find_element_by_id("submit_login")
-        password = self.browser.find_element_by_id("password_login")
+#         email = self.browser.find_element_by_id("email_login")
+#         submit = self.browser.find_element_by_id("submit_login")
+#         password = self.browser.find_element_by_id("password_login")
         
-        email.send_keys("gontrand.daudre@kelindi.com")
-        password.send_keys("zerty51FC")
-        submit.click()
-        alert = self.browser.find_element_by_id("alert_login")
-        self.assertEqual(
-            alert.text, "Veuillez vous connecter pour visualiser cette page."
-        )
+#         email.send_keys("gontrand.daudre@kelindi.com")
+#         password.send_keys("zerty51FC")
+#         submit.click()
+#         alert = self.browser.find_element_by_id("alert_login")
+#         self.assertEqual(
+#             alert.text, "Veuillez vous connecter pour visualiser cette page."
+#         )
         
-    def test_login_selenium(self):
-        self.browser.get(self.live_server_url)
+#     def test_login_selenium(self):
+#         self.browser.get(self.live_server_url)
         
-        email = self.browser.find_element_by_id("email_login")
-        submit = self.browser.find_element_by_id("submit_login")
-        password = self.browser.find_element_by_id("password_login")
+#         email = self.browser.find_element_by_id("email_login")
+#         submit = self.browser.find_element_by_id("submit_login")
+#         password = self.browser.find_element_by_id("password_login")
         
-        email.send_keys("gontrand.daudre@kelindi.com")
-        password.send_keys("azerty51FC")
-        submit.click()
+#         email.send_keys("gontrand.daudre@kelindi.com")
+#         password.send_keys("azerty51FC")
+#         submit.click()
 
-    def test_index_selenium(self):
-        self.browser.get(self.live_server_url)
-        add_url = self.live_server_url + reverse("off:index")
-        self.assertEqual(
-            self.browser.current_url,
-            add_url
-        )
-        time.sleep(5)
+#     def test_index_selenium(self):
+#         self.browser.get(self.live_server_url)
+#         add_url = self.live_server_url + reverse("off:index")
+#         self.assertEqual(
+#             self.browser.current_url,
+#             add_url
+#         )
+#         time.sleep(5)
 
 
         
