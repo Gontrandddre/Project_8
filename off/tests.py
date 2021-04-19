@@ -294,7 +294,7 @@ class UsersManagersTests(TestCase):
 class testSelenium(StaticLiveServerTestCase):
 
     def setUp(self):
-        self.browser = webdriver.Chrome('chromedriver')
+        self.browser = webdriver.Chrome('./off/chromedriver')
     
     def tearDown(self):
         self.browser.close()
