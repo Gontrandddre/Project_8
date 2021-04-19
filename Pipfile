@@ -7,7 +7,6 @@ verify_ssl = true
 
 [packages]
 django = "*"
-psycopg2 = "*"
 django-debug-toolbar = "*"
 whitenoise = "*"
 requests = "*"
@@ -17,6 +16,7 @@ unicode = "*"
 unidecode = "*"
 flake8 = "*"
 selenium = "*"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.8"

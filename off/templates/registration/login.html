@@ -23,7 +23,7 @@
       <p>Your account doesn't have access to this page. To proceed,
       please login with an account that has access.</p>
     {% else %}
-      <div class="alert alert-warning">Veuillez vous connecter pour visualiser cette page.</div>
+      <div id="alert_login" class="alert alert-warning">Veuillez vous connecter pour visualiser cette page.</div>
     {% endif %}
   {% endif %}
   </div>
@@ -31,9 +31,9 @@
   <form class="mt-5" method="POST" action="{% url 'login' %}">
     {% csrf_token %}
     <div class="d-flex flex-column justify-content-center align-items-center">
-      <input class="form-control" type="text" name="username" autofocus maxlength="254" required placeholder="identifiant" style="width:250px">
-      <input class="mt-2 form-control" type="password" name="password" autocomplete="current-password" required placeholder="mot de passe" style="width:250px">
-      <input class="mt-4 btn btn-primary" type="submit" value="Se connecter"/>
+      <input id="email_login" class="form-control" type="text" name="username" autofocus maxlength="254" required placeholder="identifiant" style="width:250px">
+      <input id="password_login" class="mt-2 form-control" type="password" name="password" autocomplete="current-password" required placeholder="mot de passe" style="width:250px">
+      <input id="submit_login" class="mt-4 btn btn-primary" type="submit" value="Se connecter"/>
       <input type="hidden" name="next" value="{{ next }}" />
       <a class="m-5" href="{% url 'password_reset' %}">Mot de passe oublié ?</a>
       <hr class="divider my-4" />

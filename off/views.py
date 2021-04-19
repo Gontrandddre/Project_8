@@ -39,7 +39,9 @@ def register(request):
                 form = CustomUserCreationForm()
 
         else:
+            print(form.errors)
             form = CustomUserCreationForm()
+
 
     if request.method == "GET":
         form = CustomUserCreationForm()

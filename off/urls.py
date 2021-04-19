@@ -16,8 +16,8 @@ urlpatterns = [
     path('mon-compte', views.account, name='account'),
     path('mentions-legales', TemplateView.as_view(template_name="off/legal_notices.html"), name="legal-notices"),
     path('contact', TemplateView.as_view(template_name="off/contact.html"), name="contact")
-    ]
+]
 
 urlpatterns += [
-        path('inscription', views.register, name='register'),
-    ]
+    path('inscription', views.register, name='register'),
+]
