@@ -1,0 +1,18 @@
+language: python
+python:
+  - '3.8'
+
+before_script:
+  - pipenv install
+
+branches:
+  only:
+    - staging
+
+env: DJANGO_SETTINGS_MODULE="off_project.settings"
+
+services:
+  - postgresql
+
+script:
+  - ./manage.py test
