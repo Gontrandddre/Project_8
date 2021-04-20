@@ -9,6 +9,8 @@ import time
 from .models import Product, CustomUser
 
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 
 # Create your tests here.
@@ -294,7 +296,7 @@ class UsersManagersTests(TestCase):
 class testSelenium(StaticLiveServerTestCase):
 
     def setUp(self):
-        self.browser = webdriver.Chrome('chromedriver')
+        self.browser = webdriver.Chrome(ChromeDriverManager().install())
     
     def tearDown(self):
         self.browser.close()
@@ -325,14 +327,14 @@ class testSelenium(StaticLiveServerTestCase):
         password.send_keys("azerty51FC")
         submit.click()
 
-    def test_index_selenium(self):
-        self.browser.get(self.live_server_url)
-        add_url = self.live_server_url + reverse("off:index")
-        self.assertEqual(
-            self.browser.current_url,
-            add_url
-        )
-        time.sleep(5)
+#     def test_index_selenium(self):
+#         self.browser.get(self.live_server_url)
+#         add_url = self.live_server_url + reverse("off:index")
+#         self.assertEqual(
+#             self.browser.current_url,
+#             add_url
+#         )
+#         time.sleep(5)
 
 
         
