@@ -105,90 +105,10 @@ def index(request):
                 request.session['input_user'] = input_brut
                 return redirect('off:results')
 
-    if request.method == 'GET':
-
-        if Product.objects.count() == 0:
-
-            for cat_name in CATEGORIES:
-
-                params_url = {'action': 'process',
-                              'tagtype_0': 'categories',
-                              'tag_contains_0': 'contains',
-                              'tag_0': cat_name,
-                              'sort_by': 'unique_scans_n',
-                              'page_size': 1000,
-                              'axis_x': 'energy',
-                              'axis_y': 'products_n',
-                              'json': '1'}
-
-                response = requests.get(URL_BEGIN, params=params_url)
-                response_json = response.json()
-
-                for product in response_json['products']:
-                    try:
-                        name = product['product_name_fr']
-                    except KeyError:
-                        break
-                    try:
-                        picture = product['image_url']
-                    except KeyError:
-                        break
-                    try:
-                        off_id = product['id']
-                    except KeyError:
-                        break
-                    try:
-                        nutriscore_grade = product['nutriscore_grade']
-                    except KeyError:
-                        break
-                    try:
-                        proteins = product['nutriments']['proteins']
-                    except KeyError:
-                        break
-                    try:
-                        salt = product['nutriments']['salt']
-                    except KeyError:
-                        break
-                    try:
-                        fat = product['nutriments']['fat']
-                    except KeyError:
-                        break
-                    try:
-                        sugars = product['nutriments']['sugars']
-                    except KeyError:
-                        break
-                    try:
-                        carbohydrates = product['nutriments']['carbohydrates']
-                    except KeyError:
-                        break
-                    try:
-                        url = product['url']
-                    except KeyError:
-                        break
-                    category = cat_name
-
-                    Product.objects.create(
-                        off_id=off_id,
-                        name=name,
-                        picture=picture,
-                        proteins=proteins,
-                        salt=salt,
-                        fat=fat,
-                        sugars=sugars,
-                        carbohydrates=carbohydrates,
-                        nutriscore_grade=nutriscore_grade,
-                        category=category,
-                        url=url,
-                    )
-
-        else:
-            pass
-
     return render(request, 'off/index.html', {
         "error_message_empty": error_message_empty,
         "error_message_wrong": error_message_wrong,
       })
-
 
 @login_required(login_url='login')
 def results(request):

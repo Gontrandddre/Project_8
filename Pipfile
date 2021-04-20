@@ -18,6 +18,7 @@ flake8 = "*"
 selenium = "*"
 psycopg2-binary = "*"
 webdriver-manager = "*"
+django-crontab = "*"
 
 [requires]
 python_version = "3.8"
