@@ -87,17 +87,16 @@ WSGI_APPLICATION = 'off_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 DATABASES = {
-                'default': {
-                    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-                    'NAME': 'off',
-                    'USER': 'stagiaire',
-                    'HOST': '127.0.0.1',
-                    'TEST': {
-                        'NAME': 'test_off',
-                    },
-                },
-            }
-
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'off',
+        'USER': 'stagiaire',
+        'HOST': '127.0.0.1',
+        'TEST': {
+            'NAME': 'test_off',
+        },
+    },
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -143,9 +142,3 @@ STATIC_ROOT = PurePath(BASE_DIR, 'staticfiles/')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = PurePath(BASE_DIR, 'mediafiles/')
-
-# from datetime import datetime
-# CRONJOBS = [
-#     ('0 0 * * MON', 'off.cron.update_database_cron', '> update-database-$(date +\%Y\%m\%d\%H\%M\%S).log'),
-#     ('0 6 * * MON', 'django.core.management.call_command', ['dumpdata'], {'indent': 4}, "> dump-data-$(date +\%Y\%m\%d\%H\%M\%S).json"),
-# ]

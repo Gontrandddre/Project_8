@@ -17,7 +17,6 @@ from unidecode import unidecode
 
 # Create your views here.
 
-
 def register(request):
 
     if request.method == "POST":
