@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 INSTALLED_APPS = [
+    'django_crontab',
     'off',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -86,17 +87,16 @@ WSGI_APPLICATION = 'off_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 DATABASES = {
-                'default': {
-                    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-                    'NAME': 'off',
-                    'USER': 'stagiaire',
-                    'HOST': '127.0.0.1',
-                    'TEST': {
-                        'NAME': 'test_off',
-                    },
-                },
-            }
-
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'off',
+        'USER': 'stagiaire',
+        'HOST': '127.0.0.1',
+        'TEST': {
+            'NAME': 'test_off',
+        },
+    },
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
