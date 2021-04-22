@@ -24,4 +24,4 @@ services:
   - postgresql
 
 script:
-  - python3 manage.py test -v
+  - python3 manage.py test
