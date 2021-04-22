@@ -2,8 +2,13 @@ language: python
 python:
   - "3.8"
 
+addons:
+  # ajouter uniquement les navigateurs utilisés
+  chrome: stable
+
 before_script:
   - pipenv install
+  - install-webdrivers --path webdrivers
 
 branches:
   only:

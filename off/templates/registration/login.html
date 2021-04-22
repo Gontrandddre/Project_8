@@ -28,16 +28,16 @@
   {% endif %}
   </div>
 
-  <form class="mt-5" method="POST" action="{% url 'login' %}">
+  <form id="formSignIn" class="mt-5" method="POST" action="{% url 'login' %}">
     {% csrf_token %}
     <div class="d-flex flex-column justify-content-center align-items-center">
-      <input id="email_login" class="form-control" type="text" name="username" autofocus maxlength="254" required placeholder="identifiant" style="width:250px">
-      <input id="password_login" class="mt-2 form-control" type="password" name="password" autocomplete="current-password" required placeholder="mot de passe" style="width:250px">
-      <input id="submit_login" class="mt-4 btn btn-primary" type="submit" value="Se connecter"/>
+      <input id="emailLogin" class="form-control" type="text" name="username" autofocus maxlength="254" required placeholder="identifiant" style="width:250px">
+      <input id="passwordLogin" class="mt-2 form-control" type="password" name="password" autocomplete="current-password" required placeholder="mot de passe" style="width:250px">
+      <input id="submitLogin" class="mt-4 btn btn-primary" type="submit" value="Se connecter"/>
       <input type="hidden" name="next" value="{{ next }}" />
       <a class="m-5" href="{% url 'password_reset' %}">Mot de passe oublié ?</a>
       <hr class="divider my-4" />
-      <a class="btn btn-success mb-5" href="{% url 'off:register' %}"><i class="fas fa-angle-right"></i> Créer un compte </a>
+      <a id="signUp" class="btn btn-success mb-5" href="{% url 'off:register' %}"><i class="fas fa-angle-right"></i> Créer un compte </a>
     </div>
   </form>
 </section>

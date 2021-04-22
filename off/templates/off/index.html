@@ -17,8 +17,8 @@
                 <form method="POST" href="{% url 'off:results' %}">
                     {% csrf_token %}
                     <div class="row justify-content-center align-items-stretch">
-                        <input type="text" class="control-form mr-1" name="query" placeholder="ex: Nutella" style="border-radius:5px; border-color:white; width:300px">
-                        <button type="submit" class="btn btn-dark" style="background-color: #E26845; border-color:#E26845">Chercher</button>
+                        <input id="querySearch" type="text" class="control-form mr-1" name="query" placeholder="ex: Nutella" style="border-radius:5px; border-color:white; width:300px">
+                        <button id="submitQuery" type="submit" class="btn btn-dark" style="background-color: #E26845; border-color:#E26845">Chercher</button>
                     </div>
                 </form>
             </div>    

@@ -62,14 +62,14 @@
 							<form action="{% url 'off:results' %}" method="POST">
 								{% csrf_token %}
 								<input type="hidden" name="save" value="{{product.id}}">
-								<button type="submit" class="btn btn-success"><i class="fas fa-save"></i></a>
+								<button id="save-{{product.id}}" type="submit" class="btn btn-success"><i class="fas fa-save"></i></a>
 							</form>
 							{% endif %}
 
 							<form action="{% url 'off:product' product.id %}" method="POST">
 								{% csrf_token %}
 								<input type="hidden" name="product" value="{{product.id}}">
-								<button type="submit" class="btn btn-warning"><i class="fas fa-eye"></i></button>
+								<button id="view-{{product.id}}" type="submit" class="btn btn-warning"><i class="fas fa-eye"></i></button>
 							</form>
 						</div>
 					  </div>

@@ -1,0 +1,1118 @@
+[
+    {
+        "model": "off.product",
+        "pk": 304,
+        "fields": {
+            "off_id": 7622210449283,
+            "name": "Prince",
+            "picture": "https://static.openfoodfacts.org/images/products/762/221/044/9283/front_fr.415.400.jpg",
+            "proteins": "6.4",
+            "salt": "0.58",
+            "fat": "17",
+            "sugars": "32",
+            "carbohydrates": "69",
+            "nutriscore_grade": "d",
+            "category": "Biscuits",
+            "url": "https://fr.openfoodfacts.org/produit/7622210449283/prince-lu",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 305,
+        "fields": {
+            "off_id": 3175680011480,
+            "name": "Biscuit S\u00e9same",
+            "picture": "https://static.openfoodfacts.org/images/products/317/568/001/1480/front_fr.139.400.jpg",
+            "proteins": "11",
+            "salt": "0.61",
+            "fat": "22",
+            "sugars": "19",
+            "carbohydrates": "58",
+            "nutriscore_grade": "c",
+            "category": "Biscuits",
+            "url": "https://fr.openfoodfacts.org/produit/3175680011480/biscuit-sesame-gerble",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 306,
+        "fields": {
+            "off_id": 8000500310427,
+            "name": "Nutella biscuits",
+            "picture": "https://static.openfoodfacts.org/images/products/800/050/031/0427/front_fr.63.400.jpg",
+            "proteins": "8.4",
+            "salt": "0.529",
+            "fat": "24.5",
+            "sugars": "34.7",
+            "carbohydrates": "63.3",
+            "nutriscore_grade": "e",
+            "category": "Biscuits",
+            "url": "https://fr.openfoodfacts.org/produit/8000500310427/nutella-biscuits-ferrero",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 307,
+        "fields": {
+            "off_id": 3229820100234,
+            "name": "Fourr\u00e9s Chocolat noir",
+            "picture": "https://static.openfoodfacts.org/images/products/322/982/010/0234/front_fr.115.400.jpg",
+            "proteins": "7.1",
+            "salt": "0.5",
+            "fat": "20",
+            "sugars": "27",
+            "carbohydrates": "65",
+            "nutriscore_grade": "d",
+            "category": "Biscuits",
+            "url": "https://fr.openfoodfacts.org/produit/3229820100234/fourres-chocolat-noir-bjorg",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 308,
+        "fields": {
+            "off_id": 3175680011534,
+            "name": "Biscuit lait chocolat",
+            "picture": "https://static.openfoodfacts.org/images/products/317/568/001/1534/front_fr.118.400.jpg",
+            "proteins": "10",
+            "salt": "0.68",
+            "fat": "17",
+            "sugars": "22",
+            "carbohydrates": "61",
+            "nutriscore_grade": "c",
+            "category": "Biscuits",
+            "url": "https://fr.openfoodfacts.org/produit/3175680011534/biscuit-lait-chocolat-gerble",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 309,
+        "fields": {
+            "off_id": 3175681851849,
+            "name": "Biscuit pomme noisette",
+            "picture": "https://static.openfoodfacts.org/images/products/317/568/185/1849/front_fr.124.400.jpg",
+            "proteins": "9.8",
+            "salt": "0.01",
+            "fat": "17",
+            "sugars": "11",
+            "carbohydrates": "62",
+            "nutriscore_grade": "a",
+            "category": "Biscuits",
+            "url": "https://fr.openfoodfacts.org/produit/3175681851849/biscuit-pomme-noisette-gerble",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 310,
+        "fields": {
+            "off_id": 7622210601988,
+            "name": "Granola - L'original",
+            "picture": "https://static.openfoodfacts.org/images/products/762/221/060/1988/front_fr.133.400.jpg",
+            "proteins": "7",
+            "salt": "1.19",
+            "fat": "24",
+            "sugars": "29",
+            "carbohydrates": "63",
+            "nutriscore_grade": "e",
+            "category": "Biscuits",
+            "url": "https://fr.openfoodfacts.org/produit/7622210601988/granola-l-original-lu",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 311,
+        "fields": {
+            "off_id": 7622210713780,
+            "name": "Belvita Petit D\u00e9jeuner Original Chocolat",
+            "picture": "https://static.openfoodfacts.org/images/products/762/221/071/3780/front_fr.116.400.jpg",
+            "proteins": "7.7",
+            "salt": "0.59",
+            "fat": "14",
+            "sugars": "26",
+            "carbohydrates": "65",
+            "nutriscore_grade": "c",
+            "category": "Biscuits",
+            "url": "https://fr.openfoodfacts.org/produit/7622210713780/belvita-petit-dejeuner-original-chocolat-lu",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 312,
+        "fields": {
+            "off_id": 3229820021027,
+            "name": "P'tit Nature Complet",
+            "picture": "https://static.openfoodfacts.org/images/products/322/982/002/1027/front_fr.151.400.jpg",
+            "proteins": "7.7",
+            "salt": "0.55",
+            "fat": "11",
+            "sugars": "18",
+            "carbohydrates": "72",
+            "nutriscore_grade": "b",
+            "category": "Biscuits",
+            "url": "https://fr.openfoodfacts.org/produit/3229820021027/p-tit-nature-complet-bjorg",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 313,
+        "fields": {
+            "off_id": 3251490332080,
+            "name": "Biscuits Figue et son",
+            "picture": "https://static.openfoodfacts.org/images/products/325/149/033/2080/front_fr.95.400.jpg",
+            "proteins": "9.3",
+            "salt": "0.19",
+            "fat": "19",
+            "sugars": "16",
+            "carbohydrates": "54",
+            "nutriscore_grade": "a",
+            "category": "Biscuits",
+            "url": "https://fr.openfoodfacts.org/produit/3251490332080/biscuits-figue-et-son-gerble",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 314,
+        "fields": {
+            "off_id": 7622210713926,
+            "name": "belvita original petit dejeuner",
+            "picture": "https://static.openfoodfacts.org/images/products/762/221/071/3926/front_fr.124.400.jpg",
+            "proteins": "7.8",
+            "salt": "1.4",
+            "fat": "14",
+            "sugars": "22",
+            "carbohydrates": "66",
+            "nutriscore_grade": "d",
+            "category": "Biscuits",
+            "url": "https://fr.openfoodfacts.org/produit/7622210713926/belvita-original-petit-dejeuner-lu",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 315,
+        "fields": {
+            "off_id": 7622210713889,
+            "name": "Belvita Petit-D\u00e9jeuner miel et p\u00e9pites de chocolat",
+            "picture": "https://static.openfoodfacts.org/images/products/762/221/071/3889/front_fr.136.400.jpg",
+            "proteins": "7.4",
+            "salt": "0.69",
+            "fat": "15",
+            "sugars": "29",
+            "carbohydrates": "68",
+            "nutriscore_grade": "d",
+            "category": "Biscuits",
+            "url": "https://fr.openfoodfacts.org/produit/7622210713889/belvita-petit-dejeuner-miel-et-pepites-de-chocolat-lu",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 316,
+        "fields": {
+            "off_id": 7622210421968,
+            "name": "V\u00e9ritable Petit \u00c9colier Chocolat au Lait",
+            "picture": "https://static.openfoodfacts.org/images/products/762/221/042/1968/front_fr.82.400.jpg",
+            "proteins": "6.5",
+            "salt": "0.6",
+            "fat": "24",
+            "sugars": "40",
+            "carbohydrates": "65",
+            "nutriscore_grade": "e",
+            "category": "Biscuits",
+            "url": "https://fr.openfoodfacts.org/produit/7622210421968/veritable-petit-ecolier-chocolat-au-lait-lu",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 317,
+        "fields": {
+            "off_id": 3251490307002,
+            "name": "Go\u00fbter p\u00e9pites de chocolat",
+            "picture": "https://static.openfoodfacts.org/images/products/325/149/030/7002/front_fr.55.400.jpg",
+            "proteins": "9.4",
+            "salt": "0.24",
+            "fat": "17",
+            "sugars": "21",
+            "carbohydrates": "64",
+            "nutriscore_grade": "c",
+            "category": "Biscuits",
+            "url": "https://fr.openfoodfacts.org/produit/3251490307002/gouter-pepites-de-chocolat-gerble",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 318,
+        "fields": {
+            "off_id": 7613035040823,
+            "name": "NESTLE DESSERT Chocolat Noir",
+            "picture": "https://static.openfoodfacts.org/images/products/761/303/504/0823/front_fr.164.400.jpg",
+            "proteins": "5.9",
+            "salt": "0.01",
+            "fat": "35",
+            "sugars": "46",
+            "carbohydrates": "50",
+            "nutriscore_grade": "e",
+            "category": "Desserts",
+            "url": "https://fr.openfoodfacts.org/produit/7613035040823/nestle-dessert-chocolat-noir",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 319,
+        "fields": {
+            "off_id": 5411188119098,
+            "name": "Nature \u00e0 la noix de coco",
+            "picture": "https://static.openfoodfacts.org/images/products/541/118/811/9098/front_fr.99.400.jpg",
+            "proteins": "3.9",
+            "salt": "0.32",
+            "fat": "3",
+            "sugars": "2.1",
+            "carbohydrates": "2.3",
+            "nutriscore_grade": "b",
+            "category": "Desserts",
+            "url": "https://fr.openfoodfacts.org/produit/5411188119098/nature-a-la-noix-de-coco-alpro",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 320,
+        "fields": {
+            "off_id": 3017760290692,
+            "name": "Napolitain l'Original",
+            "picture": "https://static.openfoodfacts.org/images/products/301/776/029/0692/front_fr.132.400.jpg",
+            "proteins": "4.2",
+            "salt": "0.24",
+            "fat": "20",
+            "sugars": "34",
+            "carbohydrates": "58",
+            "nutriscore_grade": "e",
+            "category": "Desserts",
+            "url": "https://fr.openfoodfacts.org/produit/3017760290692/napolitain-l-original-lu",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 321,
+        "fields": {
+            "off_id": 3033490004743,
+            "name": "SKYR",
+            "picture": "https://static.openfoodfacts.org/images/products/303/349/000/4743/front_fr.97.400.jpg",
+            "proteins": "10",
+            "salt": "0.09",
+            "fat": "0.2",
+            "sugars": "3.9",
+            "carbohydrates": "3.9",
+            "nutriscore_grade": "a",
+            "category": "Desserts",
+            "url": "https://fr.openfoodfacts.org/produit/3033490004743/skyr-danone",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 322,
+        "fields": {
+            "off_id": 3023290634578,
+            "name": "Yaos le yaourt \u00e0 la Grecque",
+            "picture": "https://static.openfoodfacts.org/images/products/302/329/063/4578/front_fr.85.400.jpg",
+            "proteins": "2.9",
+            "salt": "0.12",
+            "fat": "8.4",
+            "sugars": "3.4",
+            "carbohydrates": "3.4",
+            "nutriscore_grade": "c",
+            "category": "Desserts",
+            "url": "https://fr.openfoodfacts.org/produit/3023290634578/yaos-le-yaourt-a-la-grecque-nestle",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 323,
+        "fields": {
+            "off_id": 3033490506629,
+            "name": "Jockey Onctueux et Doux",
+            "picture": "https://static.openfoodfacts.org/images/products/303/349/050/6629/front_fr.34.400.jpg",
+            "proteins": "6.9",
+            "salt": "0.1",
+            "fat": "3",
+            "sugars": "4.4",
+            "carbohydrates": "4.4",
+            "nutriscore_grade": "a",
+            "category": "Desserts",
+            "url": "https://fr.openfoodfacts.org/produit/3033490506629/jockey-onctueux-et-doux-danone",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 324,
+        "fields": {
+            "off_id": 5411188103387,
+            "name": "Yaourt soja v\u00e9g\u00e9tal \u00e0 la vanille",
+            "picture": "https://static.openfoodfacts.org/images/products/541/118/810/3387/front_fr.79.400.jpg",
+            "proteins": "3.7",
+            "salt": "0.2",
+            "fat": "2.2",
+            "sugars": "7.5",
+            "carbohydrates": "7.5",
+            "nutriscore_grade": "a",
+            "category": "Desserts",
+            "url": "https://fr.openfoodfacts.org/produit/5411188103387/yaourt-soja-vegetal-a-la-vanille-alpro",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 325,
+        "fields": {
+            "off_id": 5411188118961,
+            "name": "Nature aux Amandes - V\u00e9g\u00e9tal soja & amande",
+            "picture": "https://static.openfoodfacts.org/images/products/541/118/811/8961/front_fr.107.400.jpg",
+            "proteins": "3.9",
+            "salt": "0.25",
+            "fat": "2.8",
+            "sugars": "2.2",
+            "carbohydrates": "2.3",
+            "nutriscore_grade": "a",
+            "category": "Desserts",
+            "url": "https://fr.openfoodfacts.org/produit/5411188118961/nature-aux-amandes-vegetal-soja-amande-alpro",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 326,
+        "fields": {
+            "off_id": 3021769505602,
+            "name": "Pom'Potes (Pomme)",
+            "picture": "https://static.openfoodfacts.org/images/products/302/176/950/5602/front_fr.80.400.jpg",
+            "proteins": "0.3",
+            "salt": "0.01",
+            "fat": "0.6",
+            "sugars": "12.6",
+            "carbohydrates": "14",
+            "nutriscore_grade": "a",
+            "category": "Desserts",
+            "url": "https://fr.openfoodfacts.org/produit/3021769505602/pom-potes-pomme-materne",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 327,
+        "fields": {
+            "off_id": 3175681060586,
+            "name": "Sabl\u00e9s bio chocolat noir intense",
+            "picture": "https://static.openfoodfacts.org/images/products/317/568/106/0586/front_fr.29.400.jpg",
+            "proteins": "7",
+            "salt": "0.52",
+            "fat": "21",
+            "sugars": "27",
+            "carbohydrates": "62",
+            "nutriscore_grade": "d",
+            "category": "Desserts",
+            "url": "https://fr.openfoodfacts.org/produit/3175681060586/sables-bio-chocolat-noir-intense-cereal-bio",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 328,
+        "fields": {
+            "off_id": 3033710084913,
+            "name": "Arome",
+            "picture": "https://static.openfoodfacts.org/images/products/303/371/008/4913/front_fr.83.400.jpg",
+            "proteins": "15",
+            "salt": "19.3",
+            "fat": "0.5",
+            "sugars": "4.9",
+            "carbohydrates": "7.3",
+            "nutriscore_grade": "d",
+            "category": "Epiceries",
+            "url": "https://fr.openfoodfacts.org/produit/3033710084913/arome-maggi",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 329,
+        "fields": {
+            "off_id": 8712100325953,
+            "name": "Amora Moutarde de Dijon Fine et Forte Bocal",
+            "picture": "https://static.openfoodfacts.org/images/products/871/210/032/5953/front_fr.145.400.jpg",
+            "proteins": "7.1",
+            "salt": "5.7",
+            "fat": "12",
+            "sugars": "2.3",
+            "carbohydrates": "4.4",
+            "nutriscore_grade": "d",
+            "category": "Epiceries",
+            "url": "https://fr.openfoodfacts.org/produit/8712100325953/amora-moutarde-de-dijon-fine-et-forte-bocal",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 330,
+        "fields": {
+            "off_id": 8076809545440,
+            "name": "Spaghetti sans gluten",
+            "picture": "https://static.openfoodfacts.org/images/products/807/680/954/5440/front_fr.151.400.jpg",
+            "proteins": "6.9",
+            "salt": "0.002",
+            "fat": "1.5",
+            "sugars": "0.6",
+            "carbohydrates": "79.6",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/8076809545440/spaghetti-sans-gluten-barilla",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 331,
+        "fields": {
+            "off_id": 8076809545457,
+            "name": "Penne Rigate sans gluten",
+            "picture": "https://static.openfoodfacts.org/images/products/807/680/954/5457/front_fr.80.400.jpg",
+            "proteins": "6.9",
+            "salt": "0.002",
+            "fat": "1.5",
+            "sugars": "0.6",
+            "carbohydrates": "79.6",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/8076809545457/penne-rigate-sans-gluten-barilla",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 332,
+        "fields": {
+            "off_id": 3175681210981,
+            "name": "Haricots rouges Bl\u00e9 & Soja fa\u00e7on Chili",
+            "picture": "https://static.openfoodfacts.org/images/products/317/568/121/0981/front_fr.40.400.jpg",
+            "proteins": "7.6",
+            "salt": "0.66",
+            "fat": "3.5",
+            "sugars": "2.3",
+            "carbohydrates": "8.9",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/3175681210981/haricots-rouges-ble-soja-facon-chili-cereal-bio",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 333,
+        "fields": {
+            "off_id": 3038359007217,
+            "name": "Taureau aile riz basmati",
+            "picture": "https://static.openfoodfacts.org/images/products/303/835/900/7217/front_fr.30.400.jpg",
+            "proteins": "8.7",
+            "salt": "0",
+            "fat": "0.8",
+            "sugars": "0.1",
+            "carbohydrates": "77",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/3038359007217/taureau-aile-riz-basmati",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 334,
+        "fields": {
+            "off_id": 8076808890015,
+            "name": "P\u00e2tes Tortellini jambon fromage",
+            "picture": "https://static.openfoodfacts.org/images/products/807/680/889/0015/front_fr.91.400.jpg",
+            "proteins": "15.5",
+            "salt": "1",
+            "fat": "12.5",
+            "sugars": "2",
+            "carbohydrates": "55.8",
+            "nutriscore_grade": "c",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/8076808890015/pates-tortellini-jambon-fromage-barilla",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 335,
+        "fields": {
+            "off_id": 8076809545488,
+            "name": "Coquillettes sans gluten",
+            "picture": "https://static.openfoodfacts.org/images/products/807/680/954/5488/front_fr.38.400.jpg",
+            "proteins": "6.9",
+            "salt": "0.002",
+            "fat": "1.5",
+            "sugars": "0.6",
+            "carbohydrates": "79.6",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/8076809545488/coquillettes-sans-gluten-barilla",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 336,
+        "fields": {
+            "off_id": 8076809573207,
+            "name": "Barilla m\u00e9lange c\u00e9r\u00e9ales, sarrasin et quinoa",
+            "picture": "https://static.openfoodfacts.org/images/products/807/680/957/3207/front_fr.36.400.jpg",
+            "proteins": "10.1",
+            "salt": "0.002",
+            "fat": "2.7",
+            "sugars": "0.9",
+            "carbohydrates": "66.6",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/8076809573207/barilla-melange-cereales-sarrasin-et-quinoa",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 337,
+        "fields": {
+            "off_id": 8076809545464,
+            "name": "Fusilli sans gluten",
+            "picture": "https://static.openfoodfacts.org/images/products/807/680/954/5464/front_fr.48.400.jpg",
+            "proteins": "6.9",
+            "salt": "0.002",
+            "fat": "1.5",
+            "sugars": "0.6",
+            "carbohydrates": "79.6",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/8076809545464/fusilli-sans-gluten-barilla",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 338,
+        "fields": {
+            "off_id": 8076809500289,
+            "name": "P\u00e2tes Tortellini aux fromages",
+            "picture": "https://static.openfoodfacts.org/images/products/807/680/950/0289/front_fr.38.400.jpg",
+            "proteins": "13.5",
+            "salt": "1.6",
+            "fat": "12",
+            "sugars": "3.5",
+            "carbohydrates": "55.5",
+            "nutriscore_grade": "c",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/8076809500289/pates-tortellini-aux-fromages-barilla",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 339,
+        "fields": {
+            "off_id": 3256220663229,
+            "name": "Duo de c\u00e9r\u00e9ales quinoa et boulgour",
+            "picture": "https://static.openfoodfacts.org/images/products/325/622/066/3229/front_fr.59.400.jpg",
+            "proteins": "13.4",
+            "salt": "0",
+            "fat": "3.3",
+            "sugars": "6.3",
+            "carbohydrates": "60.7",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/3256220663229/duo-de-cereales-quinoa-et-boulgour-u",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 340,
+        "fields": {
+            "off_id": 3250390608172,
+            "name": "Riz Basmati naturellement parfum\u00e9",
+            "picture": "https://static.openfoodfacts.org/images/products/325/039/060/8172/front_fr.4.400.jpg",
+            "proteins": "8.5",
+            "salt": "0",
+            "fat": "1.2",
+            "sugars": "0",
+            "carbohydrates": "74.6",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/3250390608172/riz-basmati-naturellement-parfume-saint-eloi",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 341,
+        "fields": {
+            "off_id": 3256225436293,
+            "name": "Quinoa",
+            "picture": "https://static.openfoodfacts.org/images/products/325/622/543/6293/front_fr.61.400.jpg",
+            "proteins": "14",
+            "salt": "0.01",
+            "fat": "7",
+            "sugars": "4.1",
+            "carbohydrates": "57",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/3256225436293/quinoa-u",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 342,
+        "fields": {
+            "off_id": 3256220368018,
+            "name": "Couscous semi-complet",
+            "picture": "https://static.openfoodfacts.org/images/products/325/622/036/8018/front_fr.60.400.jpg",
+            "proteins": "11",
+            "salt": "0",
+            "fat": "2.1",
+            "sugars": "2",
+            "carbohydrates": "68",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/3256220368018/couscous-semi-complet-u-bio",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 343,
+        "fields": {
+            "off_id": 3256220663212,
+            "name": "M\u00e9lange de c\u00e9r\u00e9ales bl\u00e9, soja, avoine et orge",
+            "picture": "https://static.openfoodfacts.org/images/products/325/622/066/3212/front_fr.49.400.jpg",
+            "proteins": "20.3",
+            "salt": "0",
+            "fat": "7.9",
+            "sugars": "5.1",
+            "carbohydrates": "51.5",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/3256220663212/melange-de-cereales-ble-soja-avoine-et-orge-u",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 344,
+        "fields": {
+            "off_id": 8076809572750,
+            "name": "Spaghetti 5 c\u00e9r\u00e9ales",
+            "picture": "https://static.openfoodfacts.org/images/products/807/680/957/2750/front_fr.22.400.jpg",
+            "proteins": "12.5",
+            "salt": "0.007",
+            "fat": "2.2",
+            "sugars": "3",
+            "carbohydrates": "67.1",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/8076809572750/spaghetti-5-cereales-barilla",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 345,
+        "fields": {
+            "off_id": 8076809571586,
+            "name": "Tagliatelle sans gluten",
+            "picture": "https://static.openfoodfacts.org/images/products/807/680/957/1586/front_fr.24.400.jpg",
+            "proteins": "6.9",
+            "salt": "0.002",
+            "fat": "1.5",
+            "sugars": "0.6",
+            "carbohydrates": "79.6",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/8076809571586/tagliatelle-sans-gluten-barilla",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 346,
+        "fields": {
+            "off_id": 3256226092009,
+            "name": "Couscous grains moyens bio",
+            "picture": "https://static.openfoodfacts.org/images/products/325/622/609/2009/front_fr.46.400.jpg",
+            "proteins": "11",
+            "salt": "0.01",
+            "fat": "1.7",
+            "sugars": "2.4",
+            "carbohydrates": "72",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/3256226092009/couscous-grains-moyens-bio-u-bio",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 347,
+        "fields": {
+            "off_id": 3256221011302,
+            "name": "Graine de couscous grains moyens",
+            "picture": "https://static.openfoodfacts.org/images/products/325/622/101/1302/front_fr.54.400.jpg",
+            "proteins": "12",
+            "salt": "0",
+            "fat": "1.9",
+            "sugars": "2.5",
+            "carbohydrates": "70",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/3256221011302/graine-de-couscous-grains-moyens-u",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 348,
+        "fields": {
+            "off_id": 20063757,
+            "name": "Spaghetti",
+            "picture": "https://static.openfoodfacts.org/images/products/20063757/front_fr.32.400.jpg",
+            "proteins": "12",
+            "salt": "0",
+            "fat": "1.2",
+            "sugars": "3.2",
+            "carbohydrates": "71",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/20063757/spaghetti-combino",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 349,
+        "fields": {
+            "off_id": 3256221675528,
+            "name": "Quinoa nature",
+            "picture": "https://static.openfoodfacts.org/images/products/325/622/167/5528/front_fr.49.400.jpg",
+            "proteins": "3.7",
+            "salt": "0.58",
+            "fat": "4",
+            "sugars": "1.2",
+            "carbohydrates": "20.3",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/3256221675528/quinoa-nature-u-bio",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 350,
+        "fields": {
+            "off_id": 3250392490614,
+            "name": "Les M\u00e9langes Bon & Bon",
+            "picture": "https://static.openfoodfacts.org/images/products/325/039/249/0614/front_fr.4.400.jpg",
+            "proteins": "12.3",
+            "salt": "1.7",
+            "fat": "4.5",
+            "sugars": "3.8",
+            "carbohydrates": "62.5",
+            "nutriscore_grade": "c",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/3250392490614/les-melanges-bon-bon-saint-eloi",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 351,
+        "fields": {
+            "off_id": 3256221011319,
+            "name": "Graine couscous grains moyens",
+            "picture": "https://static.openfoodfacts.org/images/products/325/622/101/1319/front_fr.58.400.jpg",
+            "proteins": "12",
+            "salt": "0",
+            "fat": "1.9",
+            "sugars": "2.5",
+            "carbohydrates": "70",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/3256221011319/graine-couscous-grains-moyens-u",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 352,
+        "fields": {
+            "off_id": 325221675535,
+            "name": "Bl\u00e9, riz et quinoa",
+            "picture": "https://static.openfoodfacts.org/images/products/325/622/167/5535/front_fr.48.400.jpg",
+            "proteins": "5.6",
+            "salt": "0.76",
+            "fat": "2.9",
+            "sugars": "0.7",
+            "carbohydrates": "25.2",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/3256221675535/ble-riz-et-quinoa-u-bio",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 353,
+        "fields": {
+            "off_id": 3256225037704,
+            "name": "Bl\u00e9 pr\u00e9cuit cuisson rapide",
+            "picture": "https://static.openfoodfacts.org/images/products/325/622/503/7704/front_fr.45.400.jpg",
+            "proteins": "12.1",
+            "salt": "0",
+            "fat": "1.2",
+            "sugars": "1.4",
+            "carbohydrates": "70",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/3256225037704/ble-precuit-cuisson-rapide-u",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 354,
+        "fields": {
+            "off_id": 3250390118145,
+            "name": "Flageolets verts extra fins",
+            "picture": "https://static.openfoodfacts.org/images/products/325/039/011/8145/front_fr.3.400.jpg",
+            "proteins": "5.4",
+            "salt": "0.81",
+            "fat": "0.6",
+            "sugars": "0",
+            "carbohydrates": "12",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/3250390118145/flageolets-verts-extra-fins-saint-eloi",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 355,
+        "fields": {
+            "off_id": 5021047102262,
+            "name": "Rice Noodles",
+            "picture": "https://static.openfoodfacts.org/images/products/502/104/710/2262/front_fr.26.400.jpg",
+            "proteins": "6.7",
+            "salt": "0.1",
+            "fat": "0.1",
+            "sugars": "0",
+            "carbohydrates": "76.2",
+            "nutriscore_grade": "b",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/5021047102262/rice-noodles-thai-kitchen",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 356,
+        "fields": {
+            "off_id": 3038359006388,
+            "name": "Banzai Rice",
+            "picture": "https://static.openfoodfacts.org/images/products/303/835/900/6388/front_fr.4.400.jpg",
+            "proteins": "8.5",
+            "salt": "1.3",
+            "fat": "4.6",
+            "sugars": "1.6",
+            "carbohydrates": "77",
+            "nutriscore_grade": "c",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/3038359006388/banzai-rice-lustucru",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 357,
+        "fields": {
+            "off_id": 3039825400310,
+            "name": "Haricots rouges",
+            "picture": "https://static.openfoodfacts.org/images/products/303/982/540/0310/front_fr.16.400.jpg",
+            "proteins": "22.5",
+            "salt": "0.03",
+            "fat": "1.1",
+            "sugars": "2.1",
+            "carbohydrates": "46",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/3039825400310/haricots-rouges-vivien-paille",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 358,
+        "fields": {
+            "off_id": 3256220360180,
+            "name": "Graines de couscous aux \u00e9pices",
+            "picture": "https://static.openfoodfacts.org/images/products/325/622/036/0180/front_fr.57.400.jpg",
+            "proteins": "12.2",
+            "salt": "1.58",
+            "fat": "1.9",
+            "sugars": "1.9",
+            "carbohydrates": "68.5",
+            "nutriscore_grade": "c",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/3256220360180/graines-de-couscous-aux-epices-u",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 359,
+        "fields": {
+            "off_id": 3256223685877,
+            "name": "Couscous Grains Fins",
+            "picture": "https://static.openfoodfacts.org/images/products/325/622/368/5877/front_fr.45.400.jpg",
+            "proteins": "12",
+            "salt": "0",
+            "fat": "1.9",
+            "sugars": "2.5",
+            "carbohydrates": "70",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/3256223685877/couscous-grains-fins-u",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 360,
+        "fields": {
+            "off_id": 5010034003781,
+            "name": "Riz & Quinoa",
+            "picture": "https://static.openfoodfacts.org/images/products/501/003/400/3781/front_fr.4.400.jpg",
+            "proteins": "3.9",
+            "salt": "0.42",
+            "fat": "2.4",
+            "sugars": "0.4",
+            "carbohydrates": "27.9",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/5010034003781/riz-quinoa-uncle-ben-s",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 361,
+        "fields": {
+            "off_id": 3256220061117,
+            "name": "Graines de couscous moyen",
+            "picture": "https://static.openfoodfacts.org/images/products/325/622/006/1117/front_fr.55.400.jpg",
+            "proteins": "12",
+            "salt": "0",
+            "fat": "1.9",
+            "sugars": "2.5",
+            "carbohydrates": "70",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/3256220061117/graines-de-couscous-moyen-u",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 362,
+        "fields": {
+            "off_id": 3281440000059,
+            "name": "Pommes de terre en rondelles",
+            "picture": "https://static.openfoodfacts.org/images/products/328/144/000/0059/front_fr.4.400.jpg",
+            "proteins": "2",
+            "salt": "0.1",
+            "fat": "0.22",
+            "sugars": "0.51",
+            "carbohydrates": "15.8",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/3281440000059/pommes-de-terre-en-rondelles-allaire",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 363,
+        "fields": {
+            "off_id": 8032891769256,
+            "name": "Nouille Blanche",
+            "picture": "https://static.openfoodfacts.org/images/products/803/289/176/9256/front_fr.3.400.jpg",
+            "proteins": "11.2",
+            "salt": "0.01",
+            "fat": "1.8",
+            "sugars": "2.7",
+            "carbohydrates": "73.1",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/8032891769256/nouille-blanche-montebello",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 364,
+        "fields": {
+            "off_id": 8076809572743,
+            "name": "Penne Rigate 5 c\u00e9r\u00e9ales",
+            "picture": "https://static.openfoodfacts.org/images/products/807/680/957/2743/front_fr.15.400.jpg",
+            "proteins": "12.5",
+            "salt": "0.007",
+            "fat": "2.2",
+            "sugars": "3",
+            "carbohydrates": "67.1",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/8076809572743/penne-rigate-5-cereales-barilla",
+            "user": null
+        }
+    },
+    {
+        "model": "off.product",
+        "pk": 365,
+        "fields": {
+            "off_id": 3266191107257,
+            "name": "Riz long complet Basmati",
+            "picture": "https://static.openfoodfacts.org/images/products/326/619/110/7257/front_fr.18.400.jpg",
+            "proteins": "9.8",
+            "salt": "0",
+            "fat": "1.9",
+            "sugars": "0.1",
+            "carbohydrates": "74",
+            "nutriscore_grade": "a",
+            "category": "F\u00e9culents",
+            "url": "https://fr.openfoodfacts.org/produit/3266191107257/riz-long-complet-basmati-la-vie-claire",
+            "user": null
+        }
+    }
+]

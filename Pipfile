@@ -20,6 +20,7 @@ psycopg2-binary = "*"
 webdriver-manager = "*"
 django-crontab = "*"
 sentry-sdk = "*"
+tchappui-webdrivers = "*"
 
 [requires]
 python_version = "3.8"
