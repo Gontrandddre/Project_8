@@ -3,21 +3,25 @@ python:
   - "3.8"
 
 addons:
-  # ajouter uniquement les navigateurs utilisés
   chrome: stable
 
-before_script:
+install:
+  - pip3 install pipenv
   - pipenv install
+
+before_script:
   - install-webdrivers --path webdrivers
 
 branches:
   only:
     - dev
 
-env: DJANGO_SETTINGS_MODULE="off_project.settings.travis"
+env:
+  global:
+    - DJANGO_SETTINGS_MODULE="off_project.settings.travis"
 
 services:
   - postgresql
 
 script:
-  - python3 manage.py test
+  - python3 manage.py test -v
