@@ -23,6 +23,7 @@ Nous avons dû pour ce projet, à partir d'un cahier des charges pré-définis:
 - exploiter l'API d'OpenFoodFact.
 - créer un script pour mettre à jour les données de l'application avec l'API OpenFoodFact.
 - rendre l'application adaptable à n'importe quel type de support (responsive design).
+- respecter la charte graphique du client.
 
 
 **STATUT**: Production
