@@ -9,10 +9,16 @@ import time
 from .models import Product, CustomUser
 
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 
-# Create your tests here.
+from django.conf import settings
 
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('window-size=1920x1080')
+
+# Create your tests here.
 
 class UsersManagersTests(TestCase):
 
@@ -55,246 +61,166 @@ class UsersManagersTests(TestCase):
                 email='super@user.com', password='foo', is_superuser=False)
 
 
-# class StaticPageTest(TestCase):
-
-#     def setUp(self):
-#         self.client = Client()
-#         self.user = CustomUser.objects.create_user(email='test@mail.com',
-#                                                    password='test')
-#         self.client.login(email='test@mail.com',
-#                           password='test')
-
-#         Product.objects.create(name="test_product", id=1)
-
-#         session = self.client.session
-#         session['search'] = 'test'
-#         session['input_user'] = 'test'
-#         session.save()
-
-#     def test_index_page(self):
-#         response = self.client.get('/')
-#         self.assertEqual(response.status_code, 200)
-#         self.assertTemplateUsed(response, 'off/index.html')
-#         self.assertEqual(response.resolver_match.func.__name__, 'index')
-#         self.assertIn('Du gras, oui, mais de qualité', response.content.decode('utf8'))
-
-#     def test_contact_page(self):
-#         response = self.client.get('/contact')
-#         self.assertEqual(response.status_code, 200)
-#         self.assertTemplateUsed(response, 'off/contact.html')
-#         self.assertEqual(response.resolver_match.func.__name__, 'TemplateView')
-#         self.assertIn('Contactez-nous !', response.content.decode('utf8'))
-
-#     def test_legalNotice_page(self):
-#         response = self.client.get('/mentions-legales')
-#         self.assertEqual(response.status_code, 200)
-#         self.assertTemplateUsed(response, 'off/legal_notices.html')
-#         self.assertEqual(response.resolver_match.func.__name__, 'TemplateView')
-#         self.assertIn('Mentions légales', response.content.decode('utf8'))
-
-#     def test_account(self):
-#         response = self.client.get('/mon-compte')
-#         self.assertEqual(response.status_code, 200)
-#         self.assertTemplateUsed(response, 'off/account.html')
-#         self.assertEqual(response.resolver_match.func.__name__, 'account')
-#         self.assertIn('Compte', response.content.decode('utf8'))
-
-#     def test_signUp_page(self):
-#         response = self.client.get('/inscription')
-#         self.assertEqual(response.status_code, 200)
-#         self.assertTemplateUsed(response, 'registration/register.html')
-#         self.assertEqual(response.resolver_match.func.__name__, 'register')
-#         self.assertIn('Inscription', response.content.decode('utf8'))
-
-#     def test_signIn_page(self):
-#         response = self.client.get('/accounts/login/')
-#         self.assertEqual(response.status_code, 200)
-#         self.assertTemplateUsed(response, 'registration/login.html')
-#         self.assertEqual(response.resolver_match.func.__name__, 'LoginView')
-#         self.assertIn('Connexion', response.content.decode('utf8'))
-
-#     def test_logOut_page(self):
-#         response = self.client.get('/accounts/logout/')
-#         self.assertEqual(response.status_code, 200)
-#         self.assertTemplateUsed(response, 'registration/logged_out.html')
-#         self.assertEqual(response.resolver_match.func.__name__, 'LogoutView')
-#         self.assertIn('Déconnexion', response.content.decode('utf8'))
-
-#     def test_results_page(self):
-#         response = self.client.get('/resultats')
-#         self.assertEqual(response.status_code, 200)
-#         self.assertTemplateUsed(response, 'off/results.html')
-#         self.assertEqual(response.resolver_match.func.__name__, 'results')
-#         self.assertIs(False, response.context['error_message_empty'])
-#         self.assertIn('Résultats', response.content.decode('utf8'))
+class StaticPageTest(TestCase):
+
+    def setUp(self):
+        self.client = Client()
+        self.user = CustomUser.objects.create_user(email='test@mail.com',
+                                                   password='test')
+        self.client.login(email='test@mail.com',
+                          password='test')
+
+        Product.objects.create(name="test_product", id=1)
+
+        session = self.client.session
+        session['search'] = 'test'
+        session['input_user'] = 'test'
+        session.save()
+
+    def test_index_page(self):
+        response = self.client.get('/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'off/index.html')
+        self.assertEqual(response.resolver_match.func.__name__, 'index')
+        self.assertIn('Du gras, oui, mais de qualité', response.content.decode('utf8'))
+
+    def test_contact_page(self):
+        response = self.client.get('/contact')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'off/contact.html')
+        self.assertEqual(response.resolver_match.func.__name__, 'TemplateView')
+        self.assertIn('Contactez-nous !', response.content.decode('utf8'))
+
+    def test_legalNotice_page(self):
+        response = self.client.get('/mentions-legales')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'off/legal_notices.html')
+        self.assertEqual(response.resolver_match.func.__name__, 'TemplateView')
+        self.assertIn('Mentions légales', response.content.decode('utf8'))
+
+    def test_account(self):
+        response = self.client.get('/mon-compte')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'off/account.html')
+        self.assertEqual(response.resolver_match.func.__name__, 'account')
+        self.assertIn('Compte', response.content.decode('utf8'))
+
+    def test_signUp_page(self):
+        response = self.client.get('/inscription')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'registration/register.html')
+        self.assertEqual(response.resolver_match.func.__name__, 'register')
+        self.assertIn('Inscription', response.content.decode('utf8'))
+
+    def test_signIn_page(self):
+        response = self.client.get('/accounts/login/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'registration/login.html')
+        self.assertEqual(response.resolver_match.func.__name__, 'LoginView')
+        self.assertIn('Connexion', response.content.decode('utf8'))
+
+    def test_logOut_page(self):
+        response = self.client.get('/accounts/logout/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'registration/logged_out.html')
+        self.assertEqual(response.resolver_match.func.__name__, 'LogoutView')
+        self.assertIn('Déconnexion', response.content.decode('utf8'))
+
+    def test_results_page(self):
+        response = self.client.get('/resultats')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'off/results.html')
+        self.assertEqual(response.resolver_match.func.__name__, 'results')
+        self.assertIs(False, response.context['error_message_empty'])
+        self.assertIn('Résultats', response.content.decode('utf8'))
+
+    def test_savedProducts_page(self):
+        response = self.client.get('/mes-produits')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'off/saved.html')
+        self.assertEqual(response.resolver_match.func.__name__, 'saved_products')
+        self.assertIn('Mes aliments sauvegardés', response.content.decode('utf8'))
+
+
+class LogInPageTestCase(TestCase):
+
+    def test_logIn_page(self):
+        self.client = Client()
+        self.user = CustomUser.objects.create_user(email='test@mail.com',
+                                                   password='test')
+        self.client.login(email='test@mail.com',
+                          password='test')
+        self.assertIn('_auth_user_id', self.client.session)
+
+
+class LogOutPageTestCase(TestCase):
+
+    def test_logOut_page(self):
+        self.client = Client()
+        self.user = CustomUser.objects.create_user(email='test@mail.com',
+                                                   password='test')
+        self.client.login(email='test@mail.com',
+                          password='test')
+        self.client.logout()
+        self.assertNotIn('_auth_user_id', self.client.session)
 
-#     def test_savedProducts_page(self):
-#         response = self.client.get('/mes-produits')
-#         self.assertEqual(response.status_code, 200)
-#         self.assertTemplateUsed(response, 'off/saved.html')
-#         self.assertEqual(response.resolver_match.func.__name__, 'saved_products')
-#         self.assertIn('Mes aliments sauvegardés', response.content.decode('utf8'))
 
+class ApiOffTestCase(TestCase):
+    pass
 
-# class DatabaseTestCase(TestCase):
 
-#     def setUp(self):
-#         pass
+class Error404TestCase(TestCase):
 
-#     def test_categories_products_objects(self):
-#         # products = Product.objects.all()
-#         # list_categories = []
-#         # for product in products:
-#         #     if not product.category in categories:
-#         #         categories.append(product.category)
-#         #     else:
-#         #         continue
+    def setUp(self):
+        self.client = Client()
+        self.user = CustomUser.objects.create_user(email='test@mail.com',
+                                                   password='test')
+        self.client.login(email='test@mail.com',
+                          password='test')
+        Product.objects.create(name="test produit", id=2)
 
-#         # self.assertEqual(len(list_categories), 10)
-#         pass
+    def test_product_page(self):
+        response = self.client.get('/produit/999999999999999999999')
+        self.assertEqual(response.status_code, 404)
 
-#     def test_customUser_objects(self):
-#         pass
 
+class SessionTestCase(TestCase):
 
-# class SignUpPageTestCase(TestCase):
-#     pass
+    def setUp(self):
+        self.client = Client()
+        self.user = CustomUser.objects.create_user(email='test@mail.com',
+                                                   password='test')
+        self.client.login(email='test@mail.com',
+                          password='test')
 
-
-# # class SignInPageTestCase(TestCase):
-
-# #     def test_SignIn_page(self):
-# #         response = self.client.post({'email': 'test2@mail.com',
-# #                                      'password1': 'test2',
-# #                                      'passwword2': 'test2'})
-
-# #         self.assertIn('_auth_user_id', self.client.session)
-
-
-# class LogInPageTestCase(TestCase):
-
-#     def test_logIn_page(self):
-#         self.client = Client()
-#         self.user = CustomUser.objects.create_user(email='test@mail.com',
-#                                                    password='test')
-#         self.client.login(email='test@mail.com',
-#                           password='test')
-#         self.assertIn('_auth_user_id', self.client.session)
-
-
-# class LogOutPageTestCase(TestCase):
-
-#     def test_logOut_page(self):
-#         self.client = Client()
-#         self.user = CustomUser.objects.create_user(email='test@mail.com',
-#                                                    password='test')
-#         self.client.login(email='test@mail.com',
-#                           password='test')
-#         self.client.logout()
-#         self.assertNotIn('_auth_user_id', self.client.session)
-
-
-# class ApiOffTestCase(TestCase):
-#     pass
-
-
-# class ListSubsituteProductsTestCase(TestCase):
-
-#     def setUp(self):
-#         self.client = Client()
-#         self.user = CustomUser.objects.create_user(email='test@mail.com',
-#                                                    password='test')
-#         self.client.login(email='test@mail.com',
-#                           password='test')
-
-#         Product.objects.create(name="jambon de Paris", id=1)
-
-#     def test_results_page(self):
-#         response = self.client.post('/results', {'query': 'jambon'})
-#         print(response.wsgi_request)
-#         self.assertEqual(response.request['REQUEST_METHOD'], "POST")
-#         self.assertIn('jambon', response.content.decode('utf8'))
-
-
-# class ListSavedProductTestCase(TestCase):
-#     pass
-
-
-# class QueryTestCase(TestCase):
-#     pass
-
-
-# class SaveProductTestCase(TestCase):
-#     pass
-
-
-# class VisualizeProductPageTestCase(TestCase):
-#     pass
-
-
-# class Error404TestCase(TestCase):
-
-#     def setUp(self):
-#         self.client = Client()
-#         self.user = CustomUser.objects.create_user(email='test@mail.com',
-#                                                    password='test')
-#         self.client.login(email='test@mail.com',
-#                           password='test')
-#         Product.objects.create(name="test produit", id=2)
-
-#     def test_product_page(self):
-#         response = self.client.get('/produit/999999999999999999999')
-#         self.assertEqual(response.status_code, 404)
-
-
-# class ViewWithOutLogin(TestCase):
-
-#     # def test_index_page(self):
-
-#     #     response = self.client.get('/')
-#     #     self.assertEqual(response.status_code, )
-#     #     self.assertTemplateUsed(response, 'registration/login.html')
-#     #     self.assertEqual(response.resolver_match.func.__name__, 'LoginView')
-#     #     self.assertIn('Veuillez vous connecter pour visualiser cette page', response.content.decode('utf8'))
-
-#     # def test_contact_page(self):
-
-#     # def test_legalNotice_page(self):
-
-#     # def test_account(self):
-
-#     # def test_signUp_page(self):
-
-#     # def test_signIn_page(self):
-
-#     # def test_logOut_page(self):
-
-#     # def test_savedProducts_page(self):
-
-#     pass
-
-
-# class SessionTestCase(TestCase):
-
-#     def setUp(self):
-#         self.client = Client()
-#         self.user = CustomUser.objects.create_user(email='test@mail.com',
-#                                                    password='test')
-#         self.client.login(email='test@mail.com',
-#                           password='test')
-
-#     def test_results_page(self):
-#         response = self.client.get('/results')
-#         session = self.client.session
-#         session['search'] = 'test'
-#         session.save()
-#         self.assertEqual(session["search"], "test")
+    def test_results_page(self):
+        response = self.client.get('/results')
+        session = self.client.session
+        session['search'] = 'test'
+        session.save()
+        self.assertEqual(session["search"], "test")
 
 
 class testSelenium(StaticLiveServerTestCase):
 
     def setUp(self):
-        self.browser = webdriver.Chrome('chromedriver')
+        self.browser = webdriver.Chrome(
+            executable_path=str(settings.BASE_DIR / 'webdrivers' / 'chromedriver'),
+            options=chrome_options,
+        )
+        self.browser.implicitly_wait(10)
+        self.browser.maximize_window()
+        
+        CustomUser.objects.create_user(
+            email='testSelenium@test.test',
+            password='testSelenium'
+        )
+
+        Product.objects.create(
+            id=12345,
+            off_id=678910,
+            name='jambon'                        
+        )
     
     def tearDown(self):
         self.browser.close()
@@ -302,39 +228,110 @@ class testSelenium(StaticLiveServerTestCase):
     def test_wrong_login_selenium(self):
         self.browser.get(self.live_server_url)
         
-        email = self.browser.find_element_by_id("email_login")
-        submit = self.browser.find_element_by_id("submit_login")
-        password = self.browser.find_element_by_id("password_login")
-        
-        email.send_keys("gontrand.daudre@kelindi.com")
-        password.send_keys("zerty51FC")
-        submit.click()
-        alert = self.browser.find_element_by_id("alert_login")
+        self.browser.find_element_by_id("emailLogin").send_keys("testSelenium@test.test")
+        self.browser.find_element_by_id("passwordLogin").send_keys("zerty51FC")
+        self.browser.find_element_by_id("submitLogin").click()
+          
         self.assertEqual(
-            alert.text, "Veuillez vous connecter pour visualiser cette page."
+            self.browser.find_element_by_id("alert_login").text,
+            "Veuillez vous connecter pour visualiser cette page."
         )
         
     def test_login_selenium(self):
         self.browser.get(self.live_server_url)
         
-        email = self.browser.find_element_by_id("email_login")
-        submit = self.browser.find_element_by_id("submit_login")
-        password = self.browser.find_element_by_id("password_login")
+        self.browser.find_element_by_id("emailLogin").send_keys("testSelenium@test.test")
+        self.browser.find_element_by_id("submitLogin").send_keys("zerty51FC")
+        self.browser.find_element_by_id("passwordLogin").click()
+    
+    def test_sign_up_selenium(self):
+        self.browser.get(self.live_server_url)
+        sign_up = self.browser.find_element_by_id("signUp")
+        sign_up.click()
+        self.assertEqual(
+            self.browser.current_url,
+            self.live_server_url + reverse("off:register")
+        )
+    
+    def test_index_selenium(self):
+        self.browser.get(self.live_server_url)
         
-        email.send_keys("gontrand.daudre@kelindi.com")
-        password.send_keys("azerty51FC")
-        submit.click()
-
-#     def test_index_selenium(self):
-#         self.browser.get(self.live_server_url)
-#         add_url = self.live_server_url + reverse("off:index")
-#         self.assertEqual(
-#             self.browser.current_url,
-#             add_url
-#         )
-#         time.sleep(5)
-
-
+        self.browser.find_element_by_id("emailLogin").send_keys("testSelenium@test.test")
+        self.browser.find_element_by_id("passwordLogin").send_keys("testSelenium")
+        self.browser.find_element_by_id("submitLogin").submit()
         
+        self.assertEqual(
+            self.browser.current_url,
+            self.live_server_url + reverse("off:index")
+        )
 
+    def test_search_product_index(self):
+
+        self.browser.get(self.live_server_url + reverse("off:index"))
+
+        self.browser.find_element_by_id("emailLogin").send_keys("testSelenium@test.test")
+        self.browser.find_element_by_id("passwordLogin").send_keys("testSelenium")
+        self.browser.find_element_by_id("submitLogin").submit()
+
+        time.sleep(2)
         
+        self.browser.find_element_by_id("querySearch").send_keys("jambon")
+        self.browser.find_element_by_id("submitQuery").submit()
+
+        time.sleep(2)
+
+        self.assertEqual(
+            self.browser.current_url,
+            self.live_server_url + reverse("off:results")
+        )
+        
+    def test_save_product_selenium(self):
+        
+        self.browser.get(self.live_server_url + reverse("off:index"))
+
+        self.browser.find_element_by_id("emailLogin").send_keys("testSelenium@test.test")
+        self.browser.find_element_by_id("passwordLogin").send_keys("testSelenium")
+        self.browser.find_element_by_id("submitLogin").submit()
+        
+        time.sleep(1)
+        
+        self.browser.find_element_by_id("querySearch").send_keys("jambon")
+        self.browser.find_element_by_id("submitQuery").submit()
+
+        time.sleep(1)
+
+        self.browser.find_element_by_id("save-12345").submit()
+
+        time.sleep(1)
+
+        self.browser.find_element_by_id("savedProductsLink").click()
+
+        time.sleep(1)
+
+        productSaved = self.browser.find_element_by_id("product-saved-12345")
+
+        self.assertEqual(
+            self.browser.current_url,
+            self.live_server_url + reverse("off:saved-products")
+        )
+        self.assertEqual(
+            'product-saved-' + str(Product.objects.get(id=12345).id),
+            productSaved.get_attribute('id')
+        )
+
+    def test_logout_selenium(self):
+        self.browser.get(self.live_server_url + reverse("off:index"))
+
+        self.browser.find_element_by_id("emailLogin").send_keys("testSelenium@test.test")
+        self.browser.find_element_by_id("passwordLogin").send_keys("testSelenium")
+        self.browser.find_element_by_id("submitLogin").submit()
+        
+        time.sleep(1)
+
+        self.browser.find_element_by_id("logoutLink").click()
+        time.sleep(1)
+
+        self.assertEqual(
+            self.browser.find_element_by_id("logoutAlert").text,
+            "Déconnexion"
+        )

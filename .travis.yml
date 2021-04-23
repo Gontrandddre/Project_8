@@ -2,14 +2,23 @@ language: python
 python:
   - "3.8"
 
-before_script:
+addons:
+  chrome: stable
+
+install:
+  - pip3 install pipenv
   - pipenv install
+
+before_script:
+  - install-webdrivers --path webdrivers
 
 branches:
   only:
     - dev
 
-env: DJANGO_SETTINGS_MODULE="off_project.settings.travis"
+env:
+  global:
+    - DJANGO_SETTINGS_MODULE="off_project.settings.travis"
 
 services:
   - postgresql

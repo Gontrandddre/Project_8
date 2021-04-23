@@ -23,7 +23,7 @@
     
     {% else %}
         {% for product in saved_products %}
-          <div class="col-sm-6 col-md-4 ">
+          <div id="product-saved-{{product.id}}" class="col-sm-6 col-md-4 ">
             <div class="card m-5">
               <img src="{{product.picture}}" class="card-img-top" alt="product">
 
