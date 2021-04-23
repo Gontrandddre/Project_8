@@ -5,4 +5,4 @@
 
 # settings production
 /off_project/settings/production.py
-/off_project/static/*
+/static/*
