@@ -147,18 +147,17 @@ USE_TZ = True
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_URL = '/static/'
-STATIC_ROOT = PurePath(BASE_DIR, 'staticfiles/')
 
 if os.environ.get('ENV') == 'PRODUCTION':
 
     # Static files settings
-    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+    PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-    STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+    STATIC_ROOT = PurePath(BASE_DIR, 'staticfiles')
 
     # Extra places for collectstatic to find static files.
     STATICFILES_DIRS = (
-        os.path.join(PROJECT_ROOT, 'static'),
+        PurePath(PROJECT_ROOT, 'static'),
     )
     # Simplified static file serving.
     # https://warehouse.python.org/project/whitenoise/
