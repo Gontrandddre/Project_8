@@ -21,6 +21,9 @@ webdriver-manager = "*"
 django-crontab = "*"
 sentry-sdk = "*"
 tchappui-webdrivers = "*"
+python-dotenv = "*"
+dj-database-url = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"

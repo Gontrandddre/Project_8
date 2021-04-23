@@ -15,7 +15,11 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path, PurePath
 from os import environ
+import os
 
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -24,13 +28,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = environ.get('SECRET_KEY')
-SECRET_KEY = "$pvey!84k+^*08cf(&@vc@04cifdfm+xg2v+19@w#@b4!^+yv3"
+# SECRET_KEY = "$pvey!84k+^*08cf(&@vc@04cifdfm+xg2v+19@w#@b4!^+yv3"
+SECRET_KEY = os.environ.get('SECRET_KEY', '$pvey!84k+^*08cf(&@vc@04cifdfm+xg2v+19@w#@b4!^+yv3')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if os.environ.get('ENV') == 'PRODUCTION':
+    DEBUG = False
+else:
+    DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pur-beurre-gda']
 
 # Application definition
 INSTALLED_APPS = [
@@ -135,10 +142,20 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+### STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_URL = '/static/'
-STATIC_ROOT = PurePath(BASE_DIR, 'staticfiles/')
+### STATIC_ROOT = PurePath(BASE_DIR, 'staticfiles/')
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = PurePath(BASE_DIR, 'mediafiles/')
+if os.environ.get('ENV') == 'PRODUCTION':
+
+    STATIC_ROOT = PurePath(BASE_DIR, 'staticfiles/')
+
+    STATICFILES_DIRS = (
+        PurePath(BASE_DIR, 'static'),
+    )
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+    db_from_env = dj_database_url.config(conn_max_age=500)
+    DATABASES['default'].update(db_from_env)
