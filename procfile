@@ -1,1 +1,2 @@
 web: gunicorn off_project.wsgi
+heroku ps:scale web=1
