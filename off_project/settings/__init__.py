@@ -34,10 +34,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '$pvey!84k+^*08cf(&@vc@04cifdfm+xg2v+1
 # SECURITY WARNING: don't run with debug turned on in production!
 if os.environ.get('ENV') == 'PRODUCTION':
     DEBUG = False
+    ALLOWED_HOSTS = ['pur-beurre-gda']
 else:
     DEBUG = True
-
-ALLOWED_HOSTS = ['pur-beurre-gda']
+    ALLOWED_HOSTS = []
 
 # Application definition
 INSTALLED_APPS = [
@@ -143,10 +143,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-### STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_URL = '/static/'
-### STATIC_ROOT = PurePath(BASE_DIR, 'staticfiles/')
+STATIC_ROOT = PurePath(BASE_DIR, 'staticfiles/')
 
 if os.environ.get('ENV') == 'PRODUCTION':
 
