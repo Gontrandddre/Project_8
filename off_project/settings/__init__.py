@@ -155,6 +155,6 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = PurePath(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (
-    PurePath(BASE_DIR, 'static'),
+    PurePath(Path(__file__).resolve().parent.parent, 'static'),
 )
 
