@@ -151,13 +151,17 @@ STATIC_ROOT = PurePath(BASE_DIR, 'staticfiles/')
 
 if os.environ.get('ENV') == 'PRODUCTION':
 
-    PROJECT_ROOT = Path(__file__).resolve().parent.parent
+    # Static files settings
+    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-    STATIC_ROOT = PurePath(PROJECT_ROOT, 'staticfiles/')
+    STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
+    # Extra places for collectstatic to find static files.
     STATICFILES_DIRS = (
-        PurePath(BASE_DIR, 'Project_8/off_project/static'),
+        os.path.join(PROJECT_ROOT, 'static'),
     )
+    # Simplified static file serving.
+    # https://warehouse.python.org/project/whitenoise/
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
     db_from_env = dj_database_url.config(conn_max_age=500)
