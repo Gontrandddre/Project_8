@@ -154,7 +154,7 @@ if os.environ.get('ENV') == 'PRODUCTION':
     STATIC_ROOT = PurePath(BASE_DIR, 'staticfiles/')
 
     STATICFILES_DIRS = (
-        PurePath(BASE_DIR, 'off_project/static'),
+        PurePath(BASE_DIR, 'Project_8/off_project/static'),
     )
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
