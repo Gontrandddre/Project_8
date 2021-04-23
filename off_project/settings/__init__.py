@@ -151,7 +151,9 @@ STATIC_ROOT = PurePath(BASE_DIR, 'staticfiles/')
 
 if os.environ.get('ENV') == 'PRODUCTION':
 
-    STATIC_ROOT = PurePath(BASE_DIR, 'staticfiles/')
+    PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
+    STATIC_ROOT = PurePath(PROJECT_ROOT, 'staticfiles/')
 
     STATICFILES_DIRS = (
         PurePath(BASE_DIR, 'Project_8/off_project/static'),
