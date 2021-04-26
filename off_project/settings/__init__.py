@@ -159,3 +159,8 @@ if os.environ.get('ENV') == 'PRODUCTION':
     )
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+
+# CRONJOBS = [
+#    ('* * * * *', 'off.cron.update_database_cron', '> /home/gda/Project_8/data/update-data/update-database-$(date +\%Y\%m\%d\%H\%M\%S).log'),
+#    ('* * * * *', 'django.core.management.call_command', ['dumpdata'], {'indent': 4}, "> /home/gda/Project_8/data/dump-data/dump-data-$(date +\%Y\%m\%d\%H\%M\%S).json"),
+# ]
