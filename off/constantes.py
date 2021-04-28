@@ -8,10 +8,46 @@ from stop_words import get_stop_words
 
 STOP_WORDS = get_stop_words("fr")
 NO_CHARS_LIST = [
-    "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "[", "]",
-    "{", "}", ";", ":", ",", ".", "/", "<", ">", "?", "|", "`",
-    "~", "-", "=", "_", "+", "&", "'", "§", "°", "^", "¨", "%",
-    "`", "£", "-", "_"
+    "!",
+    "@",
+    "#",
+    "$",
+    "%",
+    "^",
+    "&",
+    "*",
+    "(",
+    ")",
+    "[",
+    "]",
+    "{",
+    "}",
+    ";",
+    ":",
+    ",",
+    ".",
+    "/",
+    "<",
+    ">",
+    "?",
+    "|",
+    "`",
+    "~",
+    "-",
+    "=",
+    "_",
+    "+",
+    "&",
+    "'",
+    "§",
+    "°",
+    "^",
+    "¨",
+    "%",
+    "`",
+    "£",
+    "-",
+    "_",
 ]
 CATEGORIES = (
     "Biscuits",
@@ -23,9 +59,9 @@ CATEGORIES = (
     "Gateaux",
     "Légumes",
     "Poissons",
-    "Viandes"
+    "Viandes",
 )
-URL_BEGIN = 'https://fr.openfoodfacts.org/cgi/search.pl'
+URL_BEGIN = "https://fr.openfoodfacts.org/cgi/search.pl"
 P_SIZE = 20
 
 # KEYS_API = (
