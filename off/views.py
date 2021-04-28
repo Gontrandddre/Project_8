@@ -19,34 +19,28 @@ from unidecode import unidecode
 
 def register(request):
 
+    if request.method == "GET":
+        form = CustomUserCreationForm()
+
     if request.method == "POST":
         form = CustomUserCreationForm(request.POST)
-
         if form.is_valid():
-            form.save()
             email = form.cleaned_data['email']
             password = form.cleaned_data['password1']
             password2 = form.cleaned_data['password2']
-
             if password == password2:
+                form.save()
                 user = authenticate(email=email, password=password)
-
                 if user is not None:
                     auth_login(request, user)
                     return redirect('off:index')
             else:
-                form = CustomUserCreationForm()
-
+                # form = CustomUserCreationForm()
+                print('passwords not equals')
         else:
-            print(form.errors)
-            form = CustomUserCreationForm()
+            print('Register not valid')
 
-
-    if request.method == "GET":
-        form = CustomUserCreationForm()
-
-    context = {'form': form}
-    return render(request, 'registration/register.html', context)
+    return render(request, 'registration/register.html', {'form': form})
 
 
 def login(request):
@@ -54,7 +48,6 @@ def login(request):
         return redirect('off:index')
 
     if request.method == 'GET':
-
         form = AuthenticationFormApp()
         return render(request, 'registration/login.html', {'form': form})
 

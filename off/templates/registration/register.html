@@ -8,7 +8,18 @@
   </div>
 </header>
 
-<section class="row d-flex flex-column justify-content-center align-items-center m-5">
+<div class="d-flex flex-row justify-content-center align-items-center mt-5"></div>
+
+</div>
+
+<div class="row d-flex flex-column justify-content-center align-items-stretch m-5">
+  {% if form.errors %}
+    {% for field, errors in form.errors.items %}
+      {% for error in errors %}
+      <div class="alert alert-warning">{{error}}</div>
+      {% endfor %}
+    {% endfor %}
+  {% endif %}
   <form method="post" action="{% url 'off:register' %}">
   {% csrf_token %}
 
@@ -62,6 +73,6 @@
         value="Sauvegarder"/>
     </div>
   </form>
-</section>
+</div>
 
 {% endblock %}
