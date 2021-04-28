@@ -156,5 +156,48 @@ class testSelenium(StaticLiveServerTestCase):
         time.sleep(1)
 
         self.assertEqual(
-            self.browser.find_element_by_id("logoutAlert").text, "Déconnexion"
+            self.browser.find_element_by_id("logoutAlert").text, "DÉCONNEXION"
+        )
+
+
+    def test_change_password_selenium(self):
+        self.browser.get(self.live_server_url + reverse("off:index"))
+
+        self.browser.find_element_by_id("emailLogin").send_keys(
+            "testSelenium@test.test"
+        )
+        self.browser.find_element_by_id("passwordLogin")\
+                    .send_keys("testSelenium")
+        self.browser.find_element_by_id("submitLogin").submit()
+        
+        current_user_old = CustomUser.objects.get(email='testSelenium@test.test')
+        current_user_old_password = current_user_old.password
+
+        time.sleep(1)
+
+        self.browser.get(self.live_server_url + reverse("off:change-password"))
+        
+        time.sleep(1)
+
+        self.browser.find_element_by_id("id_old_password").send_keys(
+            "testSelenium"
+        )
+        self.browser.find_element_by_id("id_new_password1")\
+                    .send_keys("testchangepassword")
+        self.browser.find_element_by_id("id_new_password2")\
+                    .send_keys("testchangepassword")
+        self.browser.find_element_by_id("submitChangePassword").submit()
+
+        time.sleep(1)
+
+        current_user_new = CustomUser.objects.get(email='testSelenium@test.test')
+        current_user_new_password = current_user_new.password
+
+        time.sleep(1)
+
+        self.assertEqual(
+            self.browser.find_element_by_id("messageSuccess").text, "Votre mot de passe a bien été modifié."
+        )
+        self.assertNotEqual(
+            current_user_new_password, current_user_old_password
         )

@@ -28,4 +28,5 @@ urlpatterns = [
 
 urlpatterns += [
     path("inscription", views.register, name="register"),
+    path("mot-de-passe", views.change_password, name="change-password")
 ]
