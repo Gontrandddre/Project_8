@@ -12,17 +12,13 @@ import requests
 def update_database():
 
     for cat_name in CATEGORIES:
-        params_url = {
-            "action": "process",
-            "tagtype_0": "categories",
-            "tag_contains_0": "contains",
-            "tag_0": cat_name,
-            "sort_by": "unique_scans_n",
-            "page_size": 1000,
-            "axis_x": "energy",
-            "axis_y": "products_n",
-            "json": "1",
-        }
+        params_url = {'action': 'process',
+                    'tagtype_0': 'categories',
+                    'tag_contains_0': 'contains',
+                    'tag_0': cat_name,
+                    'sort_by': 'unique_scans_n',
+                    'page_size': 10000,
+                    'json': '1'}
 
         response = requests.get(URL_BEGIN, params=params_url)
         response_json = response.json()
