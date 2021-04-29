@@ -3,8 +3,10 @@
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth import authenticate, update_session_auth_hash, login as auth_login
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib import messages
 
 from .models import Product, CustomUser
 from .forms import CustomUserCreationForm, AuthenticationFormApp
@@ -105,6 +107,30 @@ def index(request):
             "error_message_wrong": error_message_wrong,
         },
     )
+
+
+@login_required(login_url="login")
+def change_password(request):
+
+    message_validation = False
+
+    if request.method == 'GET':
+       form = PasswordChangeForm(user=request.user)
+
+    if request.method == 'POST':
+        form = PasswordChangeForm(user=request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)
+            messages.success(request, 'Votre mot de passe a bien été modifié.')   
+            return redirect("off:change-password")
+        else:
+            print("Can't change password")
+
+    return render(request, "registration/change_password.html", {
+        "message_validation": message_validation,
+        "form": form
+    })
 
 
 @login_required(login_url="login")
