@@ -60,8 +60,6 @@ CATEGORIES = (
     "Légumes",
     "Poissons",
     "Viandes",
-<<<<<<< Updated upstream
-=======
     "Snacks",
     "Sauces",
     "Pains",
@@ -70,8 +68,5 @@ CATEGORIES = (
     "Charcuteries",
     "Produits laitiers",
     "Pates à tartiner"
->>>>>>> Stashed changes
 )
 URL_BEGIN = "https://fr.openfoodfacts.org/cgi/search.pl"
-P_SIZE = 20
-
