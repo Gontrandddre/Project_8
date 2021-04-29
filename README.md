@@ -29,7 +29,7 @@ Nous avons dû pour ce projet, à partir d'un cahier des charges pré-définis:
 **STATUT**: Production
 
 **SERVEUR1**: Heroku
-**Adresse**:
+**Adresse**: https://pur-beurre-gda.herokuapp.com/
 
 **SERVEUR**: Digital Ocean
 **Adresse**: IP
