@@ -4,10 +4,11 @@
 
 # Table des matières
 
-* [Sommaire](#sommaire)
+* [Contexte](#contexte)
 * [Technologies](#technologies)
+* [Participation](#participation)
 
-## Sommaire
+## Contexte
 
 Ce projet n°8 réalisé au sein du parcours développeur d'application web - Django chez OpenClassrooms, nous a permis de créer une application avec le framework Django issu du langage Python.
 
@@ -53,3 +54,48 @@ Pour réaliser cette application nous nous sommes basés sur les technologies su
 - Sentry (Logs)
 - Selenium / TestCase (test)
 - Github
+
+## Participation
+
+1. Créer un répertoire sur votre ordianteur.
+
+2. Effectuer un clône du projet présent sur Github.
+```
+git clone <url github repo code source>
+```
+
+4. Lancer Pipenv et installer les dépendances.
+```
+pipenv shell
+pipenv install
+```
+
+5. Configurer une base de données.
+
+6. Configurer la variable DATABASES dans settings/__init__.py avec les informations de votre base de données.
+
+7. Effectuer les migrations sur votre base de données.
+```
+python3 manage.py migrate
+```
+
+8. Effectuer un import des données sur votre base de données.
+```
+python3 manage.py loaddata dump-db-products.json
+```
+
+9. Créer une nouvelle branche de travail.
+```
+git checkout -b <feature branch>
+```
+
+10. Envoyer vos modifications sur github.
+```
+git add .
+git commit -m "New feature"
+git push origin -u <feature branch>
+```
+
+11. Créer une Pull Request pour validation par les administrateurs.
+
+Et le tour est joué !
