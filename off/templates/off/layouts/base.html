@@ -71,8 +71,8 @@
                 </div>
                 {% else %}
                 <div>
-                    <a type="button" class="btn btn-outline-primary" href="{% url 'login' %}">Sign In</a>
-                    <a type="button" class="btn btn-outline-success" href="{% url 'off:register' %}">Sign Up</a>
+                    <a id="signIn" type="button" class="btn btn-outline-primary" href="{% url 'login' %}">Sign In</a>
+                    <a id="signUp" type="button" class="btn btn-outline-success" href="{% url 'off:register' %}">Sign Up</a>
                 </div>
                 {% endif %}
             </div>

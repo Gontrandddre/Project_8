@@ -15,7 +15,7 @@
 <section>
   <div class="d-flex flex-row justify-content-center align-items-center mt-5">
   {% if form.errors %}
-  <div class="alert alert-warning">Votre email ou votre mot de passe est incorrect. Veuillez réessayer.</div>
+  <div id="alert_login" class="alert alert-warning">Votre email ou votre mot de passe est incorrect. Veuillez réessayer.</div>
   {% endif %}
 
   {% if next %}
@@ -23,7 +23,7 @@
       <p>Your account doesn't have access to this page. To proceed,
       please login with an account that has access.</p>
     {% else %}
-      <div id="alert_login" class="alert alert-warning">Veuillez vous connecter pour visualiser cette page.</div>
+      <div class="alert alert-warning">Veuillez vous connecter pour visualiser cette page.</div>
     {% endif %}
   {% endif %}
   </div>
