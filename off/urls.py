@@ -14,16 +14,8 @@ urlpatterns = [
     path("mes-produits", views.saved_products, name="saved-products"),
     re_path(r"^produit/(?P<id_product>[^/]+)$", views.product, name="product"),
     path("mon-compte", views.account, name="account"),
-    path(
-        "mentions-legales",
-        TemplateView.as_view(template_name="off/legal_notices.html"),
-        name="legal-notices",
-    ),
-    path(
-        "contact",
-        TemplateView.as_view(template_name="off/contact.html"),
-        name="contact",
-    ),
+    path("mentions-legales", TemplateView.as_view(template_name="off/legal_notices.html"), name="legal-notices"),
+    path("contact", TemplateView.as_view(template_name="off/contact.html"), name="contact"),
 ]
 
 urlpatterns += [

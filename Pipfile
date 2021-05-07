@@ -24,6 +24,7 @@ tchappui-webdrivers = "*"
 python-dotenv = "*"
 dj-database-url = "*"
 gunicorn = "*"
+coverage = "*"
 
 [requires]
 python_version = "3.8"

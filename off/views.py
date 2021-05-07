@@ -68,7 +68,6 @@ def login(request):
         return render(request, "login_error.html", {"form": form})
 
 
-@login_required(login_url="login")
 def index(request):
 
     error_message_empty = False
