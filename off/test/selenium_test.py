@@ -222,3 +222,48 @@ class NewFeatureSelenium(StaticLiveServerTestCase):
         self.assertNotEqual(
             current_user_new_password, current_user_old_password
         )
+
+
+class SearchFeatureSelenium(StaticLiveServerTestCase):
+    
+    def setUp(self):
+        self.browser = webdriver.Chrome(
+            executable_path=str(
+                settings.BASE_DIR / "webdrivers" / "chromedriver"
+            ),
+            options=chrome_options,
+        )
+        self.browser.implicitly_wait(10)
+        self.browser.maximize_window()
+
+        CustomUser.objects.create_user(
+            email="testSelenium3@test.test", password="testSelenium3"
+        )
+
+        # Login
+        self.browser.get(self.live_server_url + reverse("login"))
+        self.browser.find_element_by_id("emailLogin").send_keys(
+            "testSelenium3@test.test"
+        )
+        self.browser.find_element_by_id("passwordLogin")\
+                    .send_keys("testSelenium3")
+        self.browser.find_element_by_id("submitLogin").submit()
+
+        # DB
+        Product.objects.create(id=12345, off_id=678910, name="jambon")
+
+    def tearDown(self):
+        self.browser.close()
+    
+    def test_search_feature_selenium(self):
+        list_url = ['off:index', 'off:results', 'off:saved-products', 'off:account']
+        for url in list_url:
+
+            self.browser.get(self.live_server_url + reverse(url))
+            self.browser.find_element_by_id("querySearch").send_keys("jambon")
+            self.browser.find_element_by_id("submitQuery").submit()
+
+            self.assertEqual(
+                self.browser.current_url,
+                self.live_server_url + reverse("off:results")
+            )
