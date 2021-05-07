@@ -33,30 +33,21 @@ class testSelenium(StaticLiveServerTestCase):
     def tearDown(self):
         self.browser.close()
 
-    def test_wrong_login_selenium(self):
-        self.browser.get(self.live_server_url)
+    def test_1_wrong_login_selenium(self):
+        self.browser.get(self.live_server_url + reverse("login"))
 
         self.browser.find_element_by_id("emailLogin").send_keys(
             "testSelenium@test.test"
         )
-        self.browser.find_element_by_id("passwordLogin").send_keys("zerty51FC")
+        self.browser.find_element_by_id("passwordLogin").send_keys("ferfqerqsfqezrf")
         self.browser.find_element_by_id("submitLogin").click()
 
         self.assertEqual(
             self.browser.find_element_by_id("alert_login").text,
-            "Veuillez vous connecter pour visualiser cette page.",
+            "Votre email ou votre mot de passe est incorrect. Veuillez réessayer.",
         )
 
-    def test_login_selenium(self):
-        self.browser.get(self.live_server_url)
-
-        self.browser.find_element_by_id("emailLogin").send_keys(
-            "testSelenium@test.test"
-        )
-        self.browser.find_element_by_id("submitLogin").send_keys("zerty51FC")
-        self.browser.find_element_by_id("passwordLogin").click()
-
-    def test_sign_up_selenium(self):
+    def test_2_sign_up_selenium(self):
         self.browser.get(self.live_server_url)
         sign_up = self.browser.find_element_by_id("signUp")
         sign_up.click()
@@ -65,8 +56,17 @@ class testSelenium(StaticLiveServerTestCase):
             self.live_server_url + reverse("off:register")
         )
 
-    def test_index_selenium(self):
-        self.browser.get(self.live_server_url)
+    def test_3_login_selenium(self):
+        self.browser.get(self.live_server_url + reverse("login"))
+
+        self.browser.find_element_by_id("emailLogin").send_keys(
+            "testSelenium@test.test"
+        )
+        self.browser.find_element_by_id("submitLogin").send_keys("zerty51FC")
+        self.browser.find_element_by_id("passwordLogin").click()
+
+    def test_4_index_selenium(self):
+        self.browser.get(self.live_server_url + reverse("login"))
 
         self.browser.find_element_by_id("emailLogin").send_keys(
             "testSelenium@test.test"
@@ -80,9 +80,9 @@ class testSelenium(StaticLiveServerTestCase):
             self.live_server_url + reverse("off:index")
         )
 
-    def test_search_product_index(self):
+    def test_5_search_product_index(self):
 
-        self.browser.get(self.live_server_url + reverse("off:index"))
+        self.browser.get(self.live_server_url + reverse("login"))
 
         self.browser.find_element_by_id("emailLogin").send_keys(
             "testSelenium@test.test"
@@ -103,9 +103,9 @@ class testSelenium(StaticLiveServerTestCase):
             self.live_server_url + reverse("off:results")
         )
 
-    def test_save_product_selenium(self):
+    def test_6_save_product_selenium(self):
 
-        self.browser.get(self.live_server_url + reverse("off:index"))
+        self.browser.get(self.live_server_url + reverse("login"))
 
         self.browser.find_element_by_id("emailLogin").send_keys(
             "testSelenium@test.test"
@@ -140,8 +140,8 @@ class testSelenium(StaticLiveServerTestCase):
             productSaved.get_attribute("id"),
         )
 
-    def test_logout_selenium(self):
-        self.browser.get(self.live_server_url + reverse("off:index"))
+    def test_7_logout_selenium(self):
+        self.browser.get(self.live_server_url + reverse("login"))
 
         self.browser.find_element_by_id("emailLogin").send_keys(
             "testSelenium@test.test"
@@ -160,17 +160,38 @@ class testSelenium(StaticLiveServerTestCase):
         )
 
 
+class NewFeatureSelenium(StaticLiveServerTestCase):
+    
+    def setUp(self):
+        self.browser = webdriver.Chrome(
+            executable_path=str(
+                settings.BASE_DIR / "webdrivers" / "chromedriver"
+            ),
+            options=chrome_options,
+        )
+        self.browser.implicitly_wait(10)
+        self.browser.maximize_window()
+
+        CustomUser.objects.create_user(
+            email="testSelenium2@test.test", password="testSelenium2"
+        )
+
+        Product.objects.create(id=12345, off_id=678910, name="jambon")
+
+    def tearDown(self):
+        self.browser.close()
+    
     def test_change_password_selenium(self):
-        self.browser.get(self.live_server_url + reverse("off:index"))
+        self.browser.get(self.live_server_url + reverse("login"))
 
         self.browser.find_element_by_id("emailLogin").send_keys(
-            "testSelenium@test.test"
+            "testSelenium2@test.test"
         )
         self.browser.find_element_by_id("passwordLogin")\
-                    .send_keys("testSelenium")
+                    .send_keys("testSelenium2")
         self.browser.find_element_by_id("submitLogin").submit()
         
-        current_user_old = CustomUser.objects.get(email='testSelenium@test.test')
+        current_user_old = CustomUser.objects.get(email='testSelenium2@test.test')
         current_user_old_password = current_user_old.password
 
         time.sleep(1)
@@ -180,17 +201,17 @@ class testSelenium(StaticLiveServerTestCase):
         time.sleep(1)
 
         self.browser.find_element_by_id("id_old_password").send_keys(
-            "testSelenium"
+            "testSelenium2"
         )
         self.browser.find_element_by_id("id_new_password1")\
-                    .send_keys("testchangepassword")
+                    .send_keys("NewPasswordSelenium")
         self.browser.find_element_by_id("id_new_password2")\
-                    .send_keys("testchangepassword")
+                    .send_keys("NewPasswordSelenium")
         self.browser.find_element_by_id("submitChangePassword").submit()
 
         time.sleep(1)
 
-        current_user_new = CustomUser.objects.get(email='testSelenium@test.test')
+        current_user_new = CustomUser.objects.get(email='testSelenium2@test.test')
         current_user_new_password = current_user_new.password
 
         time.sleep(1)
@@ -201,3 +222,48 @@ class testSelenium(StaticLiveServerTestCase):
         self.assertNotEqual(
             current_user_new_password, current_user_old_password
         )
+
+
+class SearchFeatureSelenium(StaticLiveServerTestCase):
+    
+    def setUp(self):
+        self.browser = webdriver.Chrome(
+            executable_path=str(
+                settings.BASE_DIR / "webdrivers" / "chromedriver"
+            ),
+            options=chrome_options,
+        )
+        self.browser.implicitly_wait(10)
+        self.browser.maximize_window()
+
+        CustomUser.objects.create_user(
+            email="testSelenium3@test.test", password="testSelenium3"
+        )
+
+        # Login
+        self.browser.get(self.live_server_url + reverse("login"))
+        self.browser.find_element_by_id("emailLogin").send_keys(
+            "testSelenium3@test.test"
+        )
+        self.browser.find_element_by_id("passwordLogin")\
+                    .send_keys("testSelenium3")
+        self.browser.find_element_by_id("submitLogin").submit()
+
+        # DB
+        Product.objects.create(id=12345, off_id=678910, name="jambon")
+
+    def tearDown(self):
+        self.browser.close()
+    
+    def test_search_feature_selenium(self):
+        list_url = ['off:index', 'off:results', 'off:saved-products', 'off:account']
+        for url in list_url:
+
+            self.browser.get(self.live_server_url + reverse(url))
+            self.browser.find_element_by_id("querySearch").send_keys("jambon")
+            self.browser.find_element_by_id("submitQuery").submit()
+
+            self.assertEqual(
+                self.browser.current_url,
+                self.live_server_url + reverse("off:results")
+            )

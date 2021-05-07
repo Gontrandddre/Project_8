@@ -20,38 +20,50 @@ from unidecode import unidecode
 
 
 def register(request):
-
+    ref_url = 'off:' + request.resolver_match.url_name
     if request.method == "GET":
         form = CustomUserCreationForm()
 
     if request.method == "POST":
-        form = CustomUserCreationForm(request.POST)
-        if form.is_valid():
-            email = form.cleaned_data["email"]
-            password = form.cleaned_data["password1"]
-            password2 = form.cleaned_data["password2"]
-            if password == password2:
-                form.save()
-                user = authenticate(email=email, password=password)
-                if user is not None:
-                    auth_login(request, user)
-                    return redirect("off:index")
-            else:
-                # form = CustomUserCreationForm()
-                print("passwords not equals")
+        if request.POST.get("query"):
+            request.session["input_user"] = request.POST.get("query")
+            return redirect("off:results")
+        
         else:
-            print("Register not valid")
+            form = CustomUserCreationForm(request.POST)
+            if form.is_valid():
+                email = form.cleaned_data["email"]
+                password = form.cleaned_data["password1"]
+                password2 = form.cleaned_data["password2"]
+                if password == password2:
+                    form.save()
+                    user = authenticate(email=email, password=password)
+                    if user is not None:
+                        auth_login(request, user)
+                        return redirect("off:index")
+                else:
+                    # form = CustomUserCreationForm()
+                    print("passwords not equals")
+            else:
+                print("Register not valid")
 
-    return render(request, "registration/register.html", {"form": form})
+    return render(request, "registration/register.html", {
+        "form": form,
+        "ref_url": ref_url,
+    })
 
 
 def login(request):
+    ref_url = 'off:' + request.resolver_match.url_name
     if request.user.is_authenticated:
         return redirect("off:index")
 
     if request.method == "GET":
         form = AuthenticationFormApp()
-        return render(request, "registration/login.html", {"form": form})
+        return render(request, "registration/login.html", {
+            "form": form,
+            "ref_url": ref_url,
+        })
 
     if request.method == "POST":
         form = AuthenticationFormApp(request=request, data=request.POST)
@@ -64,88 +76,62 @@ def login(request):
                 return redirect("off:index")
         else:
             print("User not found")
-    else:
-        return render(request, "login_error.html", {"form": form})
 
 
-@login_required(login_url="login")
 def index(request):
 
     error_message_empty = False
     error_message_wrong = False
 
     if request.method == "POST":
+        if request.POST.get("query"):
+            request.session["input_user"] = request.POST.get("query")
+            return redirect("off:results")
 
-        if not request.POST.get("query"):
-            error_message_empty = True
-
-        else:
-            input_brut = request.POST.get("query")
-            input_withoutCharsSpe = input_brut.translate(
-                {ord(c): " " for c in NO_CHARS_LIST}
-            )
-            input_no_accent = unidecode(input_withoutCharsSpe)
-            input_split = input_no_accent.split()
-
-            for element in input_split:
-                if element in STOP_WORDS:
-                    input_split.remove(element)
-
-            if not input_split:
-                error_message_wrong = True
-
-            else:
-                request.session["search"] = input_split
-                request.session["input_user"] = input_brut
-                return redirect("off:results")
-
-    return render(
-        request,
-        "off/index.html",
-        {
+    return render(request, "off/index.html", {
             "error_message_empty": error_message_empty,
             "error_message_wrong": error_message_wrong,
-        },
-    )
+    })
 
 
 @login_required(login_url="login")
 def change_password(request):
-
+    ref_url = 'off:' + request.resolver_match.url_name
     message_validation = False
 
     if request.method == 'GET':
        form = PasswordChangeForm(user=request.user)
 
     if request.method == 'POST':
-        form = PasswordChangeForm(user=request.user, data=request.POST)
-        if form.is_valid():
-            form.save()
-            update_session_auth_hash(request, form.user)
-            messages.success(request, 'Votre mot de passe a bien été modifié.')   
-            return redirect("off:change-password")
+        if request.POST.get("query"):
+            request.session["input_user"] = request.POST.get("query")
+            return redirect("off:results")
         else:
-            print("Can't change password")
+            form = PasswordChangeForm(user=request.user, data=request.POST)
+            if form.is_valid():
+                form.save()
+                update_session_auth_hash(request, form.user)
+                messages.success(request, 'Votre mot de passe a bien été modifié.')   
+                return redirect("off:change-password")
+            else:
+                print("Can't change password")
 
     return render(request, "registration/change_password.html", {
         "message_validation": message_validation,
-        "form": form
+        "form": form,
+        "ref_url": ref_url,
     })
 
 
 @login_required(login_url="login")
 def results(request):
-
+    ref_url = 'off:' + request.resolver_match.url_name
     error_message_empty = False
     error_message_no_results = False
     list_saved_id_products = []
 
     if request.method == "POST":
-
-        # new query (header)
         if request.POST.get("query"):
-
-            request.session["input_user"] = request.POST.get("query")
             input_brut = request.POST.get("query")
             input_withoutCharsSpe = input_brut.translate(
                 {ord(c): " " for c in NO_CHARS_LIST}
@@ -162,6 +148,7 @@ def results(request):
 
             else:
                 request.session["search"] = input_split
+                request.session["input_user"] = input_brut
 
         # details product
         if request.POST.get("product"):
@@ -185,11 +172,27 @@ def results(request):
         for element in user.product_set.all():
             list_saved_id_products.append(element.id)
 
-    input_split = request.session["search"]
-    input_user = request.session["input_user"]
+        input_brut = request.session["input_user"]
+        input_withoutCharsSpe = input_brut.translate(
+            {ord(c): " " for c in NO_CHARS_LIST}
+        )
+        input_no_accent = unidecode(input_withoutCharsSpe)
+        input_split = input_no_accent.split()
+
+        for element in input_split:
+            if element in STOP_WORDS:
+                input_split.remove(element)
+
+        if not input_split:
+            error_message_empty = True
+        
+        else:
+            request.session["search"] = input_split
+            request.session["input_user"] = input_brut
+ 
 
     categories_products = []
-    for word in input_split:
+    for word in request.session["search"]:
         for product in Product.objects.filter(name__icontains=word):
             categories_products.append(product.category)
 
@@ -215,62 +218,44 @@ def results(request):
         error_message_no_results = True
         substitute_products = None
 
-    return render(
-        request,
-        "off/results.html",
-        {
+    return render( request, "off/results.html", {
             "error_message_empty": error_message_empty,
             "error_message_no_results": error_message_no_results,
-            "input_user": input_user,
+            "input_user": request.session["input_user"],
             "substitute_products": substitute_products,
             "list_saved_id_products": list_saved_id_products,
-        },
-    )
+            "ref_url": ref_url,
+    })
 
 
 @login_required(login_url="login")
 def saved_products(request):
-
+    ref_url = 'off:' + request.resolver_match.url_name
     current_user = request.user
     user = get_object_or_404(CustomUser, pk=current_user.id)
     saved_products = user.product_set.all()
 
-    return render(
-        request,
-        "off/saved.html",
-        {
+    if request.method == 'POST':
+        if request.POST.get("query"):
+            request.session["input_user"] = request.POST.get("query")
+            return redirect("off:results")
+
+    return render(request, "off/saved.html", {
             "saved_products": saved_products,
-        },
-    )
+            "ref_url": ref_url,
+    })
 
 
 @login_required(login_url="login")
 def product(request, id_product):
-
+    ref_url = 'off:' + request.resolver_match.url_name
     list_saved_id_products = []
     current_user = request.user
     user = get_object_or_404(CustomUser, pk=current_user.id)
 
     if request.method == "POST":
-
-        # new query (header)
         if request.POST.get("query"):
-
             request.session["input_user"] = request.POST.get("query")
-            input_brut = request.POST.get("query")
-            input_withoutCharsSpe = input_brut.translate(
-                {ord(c): " " for c in NO_CHARS_LIST}
-            )
-            input_no_accent = unidecode(input_withoutCharsSpe)
-            input_split = input_no_accent.split()
-
-            for element in input_split:
-                if element in STOP_WORDS:
-                    input_split.remove(element)
-
-            else:
-                request.session["search"] = input_split
-
             return redirect("off:results")
 
         # save product
@@ -284,26 +269,25 @@ def product(request, id_product):
 
     product = get_object_or_404(Product, pk=id_product)
 
-    return render(
-        request,
-        "off/product.html",
-        {
+    return render(request, "off/product.html", {
             "product": product,
             "list_saved_id_products": list_saved_id_products,
-        },
-    )
+            "ref_url": ref_url,
+    })
 
 
 @login_required(login_url="login")
 def account(request):
-
+    ref_url = 'off:' + request.resolver_match.url_name
     current_user = request.user
     user = get_object_or_404(CustomUser, pk=current_user.id)
 
-    return render(
-        request,
-        "off/account.html",
-        {
+    if request.method == 'POST':
+        if request.POST.get("query"):
+            request.session["input_user"] = request.POST.get("query")
+            return redirect("off:results")
+
+    return render(request, "off/account.html", {
             "user": user,
-        },
-    )
+            "ref_url": ref_url,
+    })

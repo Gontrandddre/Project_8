@@ -3,12 +3,9 @@
 
 from django.test import TestCase, Client
 from django.contrib.auth import get_user_model
+from django.urls import reverse, reverse_lazy
 from ..models import Product, CustomUser
 from selenium import webdriver
-
-chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument("--headless")
-chrome_options.add_argument("window-size=1920x1080")
 
 # Create your tests here.
 
@@ -81,40 +78,19 @@ class StaticPageTest(TestCase):
             response.content.decode("utf8")
         )
 
-    def test_contact_page(self):
-        response = self.client.get("/contact")
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "off/contact.html")
-        self.assertEqual(response.resolver_match.func.__name__, "TemplateView")
-        self.assertIn("Contactez-nous !", response.content.decode("utf8"))
-
-    def test_legalNotice_page(self):
-        response = self.client.get("/mentions-legales")
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "off/legal_notices.html")
-        self.assertEqual(response.resolver_match.func.__name__, "TemplateView")
-        self.assertIn("Mentions légales", response.content.decode("utf8"))
-
     def test_account(self):
-        response = self.client.get("/mon-compte")
+        response = self.client.get(reverse("off:account"))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "off/account.html")
         self.assertEqual(response.resolver_match.func.__name__, "account")
         self.assertIn("Compte", response.content.decode("utf8"))
 
     def test_signUp_page(self):
-        response = self.client.get("/inscription")
+        response = self.client.get(reverse("off:register"))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "registration/register.html")
         self.assertEqual(response.resolver_match.func.__name__, "register")
         self.assertIn("Inscription", response.content.decode("utf8"))
-
-    def test_signIn_page(self):
-        response = self.client.get("/accounts/login/")
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "registration/login.html")
-        self.assertEqual(response.resolver_match.func.__name__, "LoginView")
-        self.assertIn("Connexion", response.content.decode("utf8"))
 
     def test_logOut_page(self):
         response = self.client.get("/accounts/logout/")
@@ -124,7 +100,7 @@ class StaticPageTest(TestCase):
         self.assertIn("Déconnexion", response.content.decode("utf8"))
 
     def test_results_page(self):
-        response = self.client.get("/resultats")
+        response = self.client.get(reverse("off:results"))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "off/results.html")
         self.assertEqual(response.resolver_match.func.__name__, "results")
@@ -132,7 +108,7 @@ class StaticPageTest(TestCase):
         self.assertIn("Résultats", response.content.decode("utf8"))
 
     def test_savedProducts_page(self):
-        response = self.client.get("/mes-produits")
+        response = self.client.get(reverse("off:saved-products"))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "off/saved.html")
         self.assertEqual(
@@ -164,10 +140,6 @@ class LogOutPageTestCase(TestCase):
         self.client.login(email="test@mail.com", password="test")
         self.client.logout()
         self.assertNotIn("_auth_user_id", self.client.session)
-
-
-class ApiOffTestCase(TestCase):
-    pass
 
 
 class Error404TestCase(TestCase):

@@ -43,11 +43,11 @@
                         
                         {% if request.get_full_path != '/' %}
                         <li class="nav-item mr-5">
-                            <form method="POST" href="{% url 'off:results' %}">
+                            <form method="POST" href="{% url ref_url %}">
                             {% csrf_token %}
                                 <div class="row justify-content-center align-items-stretch">
-                                    <input type="text" class="control-form mr-1" name="query" placeholder="Rechercher..." style="border-radius:5px; border-color:white; width:300px">
-                                    <input type="submit" style="display:none">
+                                    <input id="querySearch" type="text" class="control-form mr-1" name="query" placeholder="Rechercher..." style="border-radius:5px; border-color:white; width:300px">
+                                    <input id="submitQuery" type="submit" style="display:none">
                                 </div>
                             </form>
                         </li>
@@ -71,8 +71,8 @@
                 </div>
                 {% else %}
                 <div>
-                    <a type="button" class="btn btn-outline-primary" href="{% url 'login' %}">Sign In</a>
-                    <a type="button" class="btn btn-outline-success" href="{% url 'off:register' %}">Sign Up</a>
+                    <a id="signIn" type="button" class="btn btn-outline-primary" href="{% url 'login' %}">Sign In</a>
+                    <a id="signUp" type="button" class="btn btn-outline-success" href="{% url 'off:register' %}">Sign Up</a>
                 </div>
                 {% endif %}
             </div>
